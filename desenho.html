@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head lang="pt-br">
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="estiloDesenho.css"/>
+		<script src="jquery-1.9.1.min.js"></script>
+		<script src="sketch.js"></script>
+		<script src="jCanvas.min.js"></script>
+		<script src="scriptDesenho.js"></script>
+	</head>
+	<body>
+
+
+		<div class="options">
+			<div class="option">
+				<input type="radio" id="rect" name="opcao" checked/>
+				<label>Rectangle</label>
+			</div>
+			<div class="option">
+				<input type="radio" id="line" name="opcao"/>
+				<label>Line</label>
+			</div>
+			<div class="option">
+				<input type="radio" id="arc" name="opcao"/>
+				<label>Arc</label>
+			</div>
+			<div class="option">
+				<input type="radio" id="eraser" name="opcao"/>
+				<label>Eraser</label>
+			</div>
+			<div class="option">
+				<input type="radio" id="pen" name="opcao" >
+				<label>Pen</label>
+			</div>
+			<div class="option">
+				<input type="radio" id="window" name="opcao"/>
+				<label>Window</label>
+			</div>		
+		</div>
+		
+		<div class="board">
+			<canvas id="quadro" width="800" height="800">Esse navegador não suporta.</canvas>
+		</div>
+		
+		<footer>
+			<p>&copy 2016 Bernardo Dill</p>
+		</footer>
+
+	</body>
+</html>
