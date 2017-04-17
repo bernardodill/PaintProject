@@ -1,7 +1,7 @@
 body{
 	margin:0;
 	padding:0;
-	background-color: #978cc3;
+	background-color: #38396b;
 }
 
 
@@ -16,22 +16,23 @@ label{
 	font-size:13px;
 }
 
-body .options{
-	float:left;
+body .content .options{
+	
 	margin-left: 10px;
     margin-top: 10px;
+    color:#ddd;
 }
 body .board{
 	float:right;
 }
-body .options .option{
+body .content .options .option{
 	margin-bottom:20px;
 }
 
-body .options input:focus{
+body .content .options input:focus{
 	outline:0;
 }
-body .options input{
+body .content .options input{
 	margin: 0;
     padding: 0;
     vertical-align: middle;
@@ -43,22 +44,35 @@ body .options input{
     margin-right:10px;
 }
 
-body .options input[type=radio]:checked {
+body .content .options input[type=radio]:checked {
 	background-color:#51a4d4;
 
 }
-body .options label{
+body .content .options label{
 	font-family: Arial;
 	font-size:16px;
 	vertical-align: middle;
 }
 footer{
-	overflow:hidden;
-	clear:both;
-	margin:0;
+	
+    margin: 0;
     padding: 10px;
-    background-color: #666;
-    font-family:Arial;
+    background-color: #555;
+    font-family: Arial;
     font-size: 16px;
-    color: #aaa;
+    color: #ddd;
+}
+.clearfix{
+	clear:both;
+	overflow: hidden;
+	content:"";
+}
+ul li{
+	list-style: none;
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
 }

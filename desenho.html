@@ -10,41 +10,57 @@
 	</head>
 	<body>
 
-
-		<div class="options">
-			<div class="option">
-				<input type="radio" id="rect" name="opcao" checked/>
-				<label>Rectangle</label>
+	<div class="content clearfix">
+		<div class="left">
+			<div class="options">
+				<ul>
+					<li>
+						<div class="option">
+							<input type="radio" id="rect" name="opcao" checked/>
+							<label>Rectangle</label>
+						</div>
+					</li>
+					<li>
+						<div class="option">
+							<input type="radio" id="line" name="opcao"/>
+							<label>Line</label>
+						</div>
+					</li>
+					<li>
+						<div class="option">
+							<input type="radio" id="arc" name="opcao"/>
+							<label>Arc</label>
+						</div>
+					</li>
+					<li>
+						<div class="option">
+							<input type="radio" id="eraser" name="opcao"/>
+							<label>Eraser</label>
+						</div>
+					</li>
+					<li>
+						<div class="option">
+							<input type="radio" id="pen" name="opcao" >
+							<label>Pen</label>
+						</div>
+					</li>
+					<li>
+						<div class="option">
+							<input type="radio" id="window" name="opcao"/>
+							<label>Window</label>
+						</div>
+					</li>	
+				</ul>	
 			</div>
-			<div class="option">
-				<input type="radio" id="line" name="opcao"/>
-				<label>Line</label>
-			</div>
-			<div class="option">
-				<input type="radio" id="arc" name="opcao"/>
-				<label>Arc</label>
-			</div>
-			<div class="option">
-				<input type="radio" id="eraser" name="opcao"/>
-				<label>Eraser</label>
-			</div>
-			<div class="option">
-				<input type="radio" id="pen" name="opcao" >
-				<label>Pen</label>
-			</div>
-			<div class="option">
-				<input type="radio" id="window" name="opcao"/>
-				<label>Window</label>
-			</div>		
 		</div>
 		
 		<div class="board">
-			<canvas id="quadro" width="800" height="800">Esse navegador não suporta.</canvas>
+			<canvas id="quadro" width="900" height="900">Esse navegador não suporta.</canvas>
 		</div>
-		
-		<footer>
-			<p>&copy 2016 Bernardo Dill</p>
-		</footer>
-
+	</div>
+	<footer>
+		<p>&copy 2016 Bernardo Dill</p>
+	</footer>
+	
 	</body>
 </html>
