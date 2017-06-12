@@ -3,7 +3,10 @@ body{
 	padding:0;
 	background-color: #38396b;
 }
-
+a.saveButton{
+	font: bold 13px Arial ;
+	//font-weight:bold;
+}
 
 #quadro{
 	background-color:#fff;	
@@ -15,6 +18,7 @@ label{
 	font-family:"Courier New";
 	font-size:13px;
 }
+
 
 body .content .options{
 	
@@ -48,6 +52,11 @@ body .content .options input[type=radio]:checked {
 	background-color:#51a4d4;
 
 }
+
+body .content .options input:hover{
+	box-shadow: inset 1px 1px 3px #848382;
+}
+
 body .content .options label{
 	font-family: Arial;
 	font-size:16px;
@@ -75,4 +84,70 @@ ul li{
 }
 .right{
 	float:right;
+}
+
+.undo, .saveButton{
+    background: #fff;
+    border: 1px solid #777;
+    border-radius: 6px;
+    padding: 9px;
+    outline: none;
+    box-shadow: inset -1px -1px 2px #999;
+    font-weight: bold;
+}
+
+.saveButton{
+	color: green;
+    cursor: default;
+
+}
+
+.largura{
+	margin-left: 79px;
+}
+.undo{
+	color: goldenrod;
+}
+
+.undo:hover, .saveButton:hover{
+	 box-shadow: inset -2px -2px 2px #999;
+}
+.undo:active, .saveButton:active{
+	 box-shadow: inset 2px 2px 2px #999;
+}
+
+.menu{
+	width:300px;
+}
+
+.metricas {
+	display: block;
+    background-color: #ccc;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: none;
+}
+
+.metricas .border{
+	border:1px solid #000;
+	width:150px;
+	height:100px;
+	margin:10px;
+}
+
+.metricas .medida{
+	width: 30px;
+	padding:5px;
+}
+.metricas .medida.altura{
+	margin-top:50px;
+}
+
+.buttons{
+	width: 140px;
+    margin: 0 auto;
+}
+.upper{
+	width:220px;
+	margin: 0 auto;
 }
