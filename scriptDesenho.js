@@ -1,17 +1,17 @@
-	var canvas = document.getElementById("quadro");
-	var ctx = canvas.getContext("2d");
+	let canvas = document.getElementById("quadro");
+	let ctx = canvas.getContext("2d");
 
-	var iniX=0;
-	var iniY=0;
-	var finalX=0;
-	var finalY=0;
-	var w = canvas.width;
-	var h = canvas.height;
-	var imageData = ctx.getImageData(0,0,w,h);
+	let iniX=0;
+	let iniY=0;
+	let finalX=0;
+	let finalY=0;
+	let w = canvas.width;
+	let h = canvas.height;
+	let imageData = ctx.getImageData(0,0,w,h);
 	
-	var arrayData = [imageData];
+	let arrayData = [imageData];
 	
-	var arrayCorners = [];
+	let arrayCorners = [];
 
 
 	
@@ -28,9 +28,10 @@
 				line();
 			}else if($("#pen").is(":checked")){
 				pen();
+				iniX = finalX-1;
+				iniY = finalY-1;
 			}else if($("#window").is(":checked")){
 				janela();
-
 			}
 		}
 	}
@@ -110,9 +111,13 @@
 		//putImageData();
 		ctx.beginPath();
 		ctx.globalCompositeOperation="source-over";
-		ctx.moveTo(finalX,finalY);
-		ctx.lineTo(iniX,iniY);
+
+		ctx.lineWidth = 15;
+		ctx.moveTo(iniX,iniY);
+		ctx.lineTo(finalX,finalY);
 		ctx.stroke();
+
+		
 	}
 	
 	function line(){
@@ -169,7 +174,7 @@
 		ctx.putImageData(imageData,0,0);
 	}
 
-	function resetaVariaveis(){
+	function resetaletiaveis(){
 		ctx.closePath();
 		iniX = 0;
 		iniY = 0;
@@ -179,7 +184,7 @@
 		return iniX != 0 && iniY != 0;
 	}
 
-	function inicializaVariaveis(){
+	function inicializaletiaveis(){
 		iniX = finalX;
 		iniY = finalY;
 	}
@@ -222,9 +227,6 @@
 		        return;
 		    }
 		    $(".metricas").slideUp("slow");
-
-		
-
 	}
 
 
@@ -243,13 +245,13 @@
 		arrayData.push(imageData);
 
 		addCorners();
-		resetaVariaveis();
+		resetaletiaveis();
 		getImageData();
 	});
 	
 	$('canvas').mousedown(function(evt){
 		evt.preventDefault();
-		inicializaVariaveis();
+		inicializaletiaveis();
 	});		
 
 	$('canvas').mousemove(function(evt){
