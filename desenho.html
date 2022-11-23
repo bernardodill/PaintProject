@@ -3,77 +3,54 @@
 	<head lang="pt-br">
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="estiloDesenho.css"/>
+		<link rel="stylesheet" type="text/css" href="fontawesome-free-6.2.0-web/css/all.min.css">
+		<script type="text/javascript" src="fontawesome-free-6.2.0-web/js/all.min.js"></script>
 		<script src="jquery-3.2.1.min.js"></script>
-		
+	
 	</head>
 	<body>
-
-		<div class="content clearfix">
-			<div class="left menu">
-				<div class="options">
-					<ul>
-						<li>
-							<div class="option">
-								<input type="radio" id="rect" class="opcao" name="opcao" checked/>
-								<label>Retangulo</label>
-							</div>
-						</li>
-						<li>
-							<div class="option">
-								<input type="radio" id="line" class="opcao" name="opcao"/>
-								<label>Linha</label>
-							</div>
-						</li>
-						<li>
-							<div class="option">
-								<input type="radio" id="arc" class="opcao" name="opcao"/>
-								<label>Arco</label>
-							</div>
-						</li>
-						<li>
-							<div class="option">
-								<input type="radio" id="eraser" class="opcao" name="opcao"/>
-								<label>Apagador</label>
-							</div>
-						</li>
-						<li>
-							<div class="option">
-								<input type="radio" id="pen" class="opcao" name="opcao"/>
-								<label>Lapis</label>
-							</div>
-						</li>
-						<li>
-							<div class="option">
-								<input type="radio" id="window" class="opcao" name="opcao"/>
-								<label>Retangulo com medidas</label>
-							</div>
-						</li>	
-					</ul>	
-				</div>
-
-				
-				<div class="metricas hidden">
-					<div class=" upper clearfix">
-						<div class="border left"></div>
-						<input type="text" class="medida altura left"  placeholder="Altura"/>
-					</div>
-					<input type="text" class=" medida largura" placeholder="Comprimento" />
-				</div>
-
-				<div class="buttons">
-					<input type="button" value="Desfazer" class="undo">
-					<a class="saveButton">Salvar</a>
-				</div>
-
-			</div>
+		<canvas id="quadro" stye>Esse navegador não suporta.</canvas>
+		
+		<div class="menu">
+			<a class="ferramenta  ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
+				<i class="fa-regular fa-square"></i>
+			</a>
 			
-			<div class="board">
-				<canvas id="quadro" width="700" height="900">Esse navegador não suporta.</canvas>
-			</div>
+			<a class="ferramenta" id="arco" onclick="selecaoFerramentas(this)" title="Circulo" href="#">
+				<i class="fa-regular fa-circle"></i>
+			</a>
+
+			<a class="ferramenta" id="linha" onclick="selecaoFerramentas(this)" title="Vértice" href="#" >
+				<i class="fa-solid fa-minus"></i>
+			</a>
+			
+			
+			<a class="ferramenta" id="lapis" onclick="selecaoFerramentas(this)" title="Lápis" href="#">
+				<i class="fa-solid fa-pencil"></i>
+			</a>
+			
+			<input type="number" class="width" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
+			
+
+			<a class="undo" title="Desfazer" href="#">
+				<i class="fa-solid fa-rotate-left"></i>
+			</a>
+
+			<input type="color" class="colorPicker" name="color"/>
+
+			<a class="save" title="Salvar" href="#">
+				<i class="fa-solid fa-download"></i>
+			</a>
+			
 		</div>
-		<footer>
-			<p>&copy 2016 Bernardo Dill</p>
-		</footer>
+		
+		<script type="text/javascript">
+			function selecaoFerramentas(el){
+				var elementoAnterior = $(".menu a").removeClass("ativo");
+				$(el).addClass("ativo");
+			}
+
+		</script>
 		<script src="scriptDesenho.js"></script>
 	</body>
 </html>

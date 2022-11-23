@@ -1,153 +1,60 @@
+html,
 body{
 	margin:0;
 	padding:0;
-	background-color: #38396b;
+	background-color: #ddd;
+	width:100%;
+	height:100%;
 }
-a.saveButton{
-	font: bold 13px Arial ;
-	//font-weight:bold;
-}
+
 
 #quadro{
-	background-color:#fff;	
-	margin: 0 auto;
-    display: block;
-}
-
-label{
-	font-family:"Courier New";
-	font-size:13px;
-}
-
-
-body .content .options{
 	
-	margin-left: 10px;
-    margin-top: 10px;
-    color:#ddd;
-}
-body .board{
-	float:right;
-}
-body .content .options .option{
-	margin-bottom:20px;
-}
-
-body .content .options input:focus{
-	outline:0;
-}
-body .content .options input{
-	margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    background-color: #fff;
-    border:5px solid #fff;
-    width: 20px;
-    height: 20px;
-    margin-right:10px;
-}
-
-body .content .options input[type=radio]:checked {
-	background-color:#51a4d4;
-
-}
-
-body .content .options input:hover{
-	box-shadow: inset 1px 1px 3px #848382;
-}
-
-body .content .options label{
-	font-family: Arial;
-	font-size:16px;
-	vertical-align: middle;
-}
-footer{
-	
-    margin: 0;
-    padding: 10px;
-    background-color: #555;
-    font-family: Arial;
-    font-size: 16px;
-    color: #ddd;
-}
-.clearfix{
-	clear:both;
-	overflow: hidden;
-	content:"";
-}
-ul li{
-	list-style: none;
-}
-.left{
-	float:left;
-}
-.right{
-	float:right;
-}
-
-.undo, .saveButton{
-    background: #fff;
-    border: 1px solid #777;
-    border-radius: 6px;
-    padding: 9px;
-    outline: none;
-    box-shadow: inset -1px -1px 2px #999;
-    font-weight: bold;
-}
-
-.saveButton{
-	color: green;
-    cursor: default;
-
-}
-
-.largura{
-	margin-left: 79px;
-}
-.undo{
-	color: goldenrod;
-}
-
-.undo:hover, .saveButton:hover{
-	 box-shadow: inset -2px -2px 2px #999;
-}
-.undo:active, .saveButton:active{
-	 box-shadow: inset 2px 2px 2px #999;
+	display: block;
+    border: 1px solid #222;
+    position: fixed; /*ou position: absolute;*/
+    top: 0;
+    left: 0;
+    acolor:#fff;
+    background-color: #ccc;
 }
 
 .menu{
-	width:300px;
-}
-
-.metricas {
 	display: block;
-    background-color: #ccc;
-    padding: 20px;
-    margin-bottom: 30px;
-    display: none;
+	position: fixed;
+	border: 1px solid #333;
+	border-radius:3px;
+	background-color: #eee;
+	padding:0.5em;
+	left:50%;
+	top:10px;
+	width:200px;
+	margin-left:-100px;
 }
+.menu a{
+	border: 1px solid #000;
+    border-radius: 3px;
+    background: linear-gradient(358deg, #c5bdbd, #ffffff);
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: left;
 
-.metricas .border{
-	border:1px solid #000;
-	width:150px;
-	height:100px;
-	margin:10px;
 }
-
-.metricas .medida{
+.menu input.width{
 	width: 30px;
-	padding:5px;
+    height: 22px;
+    margin: 5px;
 }
-.metricas .medida.altura{
-	margin-top:50px;
+.menu input.colorPicker{
+	margin:5px;
 }
 
-.buttons{
-	width: 140px;
-    margin: 0 auto;
-}
-.upper{
-	width:220px;
-	margin: 0 auto;
+.menu .tool{
+	border:1px solid #000;
 }

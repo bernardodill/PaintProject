@@ -1,5 +1,8 @@
 	let canvas = document.getElementById("quadro");
-	let ctx = canvas.getContext("2d");
+	let ctx = canvas.getContext('2d',{willReadFrequently: true});
+
+	ctx.canvas.width  = window.innerWidth;
+  	ctx.canvas.height = window.innerHeight;
 
 	let iniX=0;
 	let iniY=0;
@@ -14,25 +17,26 @@
 	let arrayCorners = [];
 
 
-	
+	ctx.fillStyle="white";
+	ctx.fillRect(0, 0, w, h);
+	imageData = ctx.getImageData(0,0,w,h);
 
 	
 		
 	function chamaFuncao(){
 		if(mouseIsDown()){
-			if($("#rect").is(":checked")){
+			if($("#retangulo").hasClass("ativo")){
 				rectangle();
-			} else if($("#arc").is(":checked")){
+			} else if($("#arco").hasClass("ativo")){
 				arc();
-			}else if($("#line").is(":checked")){
+			}else if($("#linha").hasClass("ativo")){
 				line();
-			}else if($("#pen").is(":checked")){
+			}else if($("#lapis").hasClass("ativo")){
 				pen();
-				iniX = finalX-1;
-				iniY = finalY-1;
-			}else if($("#window").is(":checked")){
-				janela();
+				iniX = finalX;
+				iniY = finalY;
 			}
+			
 		}
 	}
 	
@@ -45,74 +49,11 @@
 	function pontoMedioX(){
 		return (iniX+finalX)/2;
 	}
-
-	function janela(){
-		ctx.putImageData(imageData,0,0);
-		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-		ctx.rect(iniX,iniY,finalX-iniX,finalY-iniY);
-		
-		ctx.font="14px Arial";
-		ctx.textAlign="center";
-
-
-		if(finalX < iniX && finalY < iniY){ 		//cima a esquerda
-			ctx.moveTo(finalX-10,iniY);
-			ctx.lineTo(finalX-10,finalY);
-			
-			ctx.moveTo(iniX,finalY-10);
-			ctx.lineTo(finalX, finalY-10);
-
-
-			ctx.fillText($(".largura").val(),pontoMedioX(),finalY-20);
-			ctx.fillText($(".altura").val(),finalX-30,pontoMedioY());
-
-			
-		} else if(finalX > iniX && finalY < iniY){ //cima a direita
-			
-			ctx.moveTo(finalX+10,iniY);
-			ctx.lineTo(finalX+10,finalY);
-
-			ctx.moveTo(iniX,finalY-10);
-			ctx.lineTo(finalX, finalY-10);
-
-			ctx.fillText($(".largura").val(),pontoMedioX(),finalY-20);
-			ctx.fillText($(".altura").val(),finalX+30,pontoMedioY());
-
-		} else if(finalX < iniX && finalY > iniY){ //baixo a esquerda
-
-			ctx.moveTo(finalX-10,iniY);
-			ctx.lineTo(finalX-10,finalY);
-
-			ctx.moveTo(iniX,finalY+10);
-			ctx.lineTo(finalX, finalY+10);
-
-			ctx.fillText($(".largura").val(),pontoMedioX(),finalY+30);
-			ctx.fillText($(".altura").val(),finalX-30,pontoMedioY());
-
-		} else{									//baixo a direita
-			ctx.moveTo(finalX+10,iniY);
-			ctx.lineTo(finalX+10,finalY);
-			ctx.moveTo(iniX,finalY+10);
-			ctx.lineTo(finalX, finalY+10);
-
-			ctx.fillText($(".largura").val(),pontoMedioX(),finalY+30);
-			ctx.fillText($(".altura").val(),finalX+30,pontoMedioY());
-
-		}
-		
-		ctx.stroke();
-
-	}
-	
-
 	
 	function pen(){
 		//putImageData();
+		ctx.lineCap = 'round';
 		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-
-		ctx.lineWidth = 15;
 		ctx.moveTo(iniX,iniY);
 		ctx.lineTo(finalX,finalY);
 		ctx.stroke();
@@ -159,8 +100,10 @@
 	}
 
 	function getMousePosition(evt){
-		finalX = evt.pageX - $("canvas").offset().left;
-		finalY = evt.pageY - $("canvas").offset().top;
+
+		finalX = event.offsetX;
+		finalY = event.offsetY;
+
 
 		console.log(iniX+", "+iniY+"\n"+finalX+", "+finalY);
 		//console.log();
@@ -174,7 +117,7 @@
 		ctx.putImageData(imageData,0,0);
 	}
 
-	function resetaletiaveis(){
+	function resetavariaveis(){
 		ctx.closePath();
 		iniX = 0;
 		iniY = 0;
@@ -184,50 +127,28 @@
 		return iniX != 0 && iniY != 0;
 	}
 
-	function inicializaletiaveis(){
+	function inicializavariaveis(){
 		iniX = finalX;
 		iniY = finalY;
-	}
-
-
-
-	function addCorners(){
-		arrayCorners.push({x : iniX, y : iniY}, {x: iniX, y: finalY});
-	}
-
-	function lightCorner(){
-		putImageData();
-		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-		ctx.arc(finalX,finalY,10, 0, 2*Math.PI);
-		ctx.fill();
-
-	}
-
-
-	function heighlightCorners(){
-		if(iniX  >= arrayCorners.x-5 && iniX <= arrayCorners.x+5){
-			lightCorner();	
-		}
+		ctx.lineWidth = $(".width").val();
+		ctx.strokeStyle = $(".colorPicker").val();
 	}
 
 	function downloadCanvas(link, filename) {
     	link.href = canvas.toDataURL();
     	link.download = filename;
+
+
+
+    	
+	  
 	}
 
 	function getDate(){
 		return new Date().toLocaleString().split(' ')[0].toString();
 	}
 
-	function showMetricas(){
-			
-		    if($("#window").is(":checked")){
-		        $(".metricas").slideDown("slow");
-		        return;
-		    }
-		    $(".metricas").slideUp("slow");
-	}
+	
 
 
 	$(".undo").on("click", function(){
@@ -237,26 +158,30 @@
 		}
 	});
 
-	$(".saveButton").on("click", function(){
-		downloadCanvas(this, getDate()+".jpeg")
+	$(".save").on("click", function(){
+		downloadCanvas(this, getDate()+".png");
+
+
+
+
 	});
 
 	$("canvas").mouseup(function(evt){
 		arrayData.push(imageData);
 
-		addCorners();
-		resetaletiaveis();
+		resetavariaveis();
 		getImageData();
 	});
 	
 	$('canvas').mousedown(function(evt){
 		evt.preventDefault();
-		inicializaletiaveis();
+		inicializavariaveis();
+		chamaFuncao();
 	});		
 
 	$('canvas').mousemove(function(evt){
 		getMousePosition(evt);
-		heighlightCorners();
+		
 		chamaFuncao();
 	});
 
