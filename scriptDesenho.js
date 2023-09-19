@@ -14,7 +14,7 @@
 	
 	let arrayData = [imageData];
 	
-	let arrayCorners = [];
+
 
 
 	ctx.fillStyle="white";
@@ -35,6 +35,9 @@
 				pen();
 				iniX = finalX;
 				iniY = finalY;
+			}else if($("#borracha").hasClass("ativo")){
+				eraser();
+
 			}
 			
 		}
@@ -43,7 +46,6 @@
 
 	function pontoMedioY(){
 		return (iniY+ finalY)/2;
-
 	}
 
 	function pontoMedioX(){
@@ -72,10 +74,16 @@
 	}
 	
 	function eraser(){
+
+		if(mouseIsDown()){
+			console.log('Mouse baixo');
+		}
+		console.log("Mouse cima");
 		putImageData();
 		ctx.beginPath();
-		ctx.globalCompositeOperation="destination-out";
+		ctx.globalCompositeOperation="source-over";
         ctx.rect(finalX-25,finalY-25,50,50);
+		ctx.stroke();
 		ctx.fill();
 	}
 	
@@ -87,35 +95,49 @@
 		ctx.stroke();
 	}
 	
+	//desenha circulo
 	function arc(){
 		putImageData();
+		ctx.width = 1;
 		ctx.beginPath();
 		ctx.globalCompositeOperation="source-over";
 		ctx.arc(iniX,iniY,distancia(),0,2*Math.PI);
 		ctx.stroke();
 	}
 	
+
+	//retorna diametro do circulo
 	function distancia(){
 		return Math.sqrt((Math.pow(finalX-iniX, 2)) + (Math.pow(finalY-iniY, 2)));
 	}
 
+
+	//pega cordenadas do mouse enquanto se move e armazena em finalX e finalY
 	function getMousePosition(evt){
+		document.addEventListener("mousemove", function (event){
+			finalX = event.offsetX;
+			finalY = event.offsetY;
+		});
 
-		finalX = event.offsetX;
-		finalY = event.offsetY;
+		//finalX = event.offsetX;     /////deprectated
+		//finalY = event.offsetY;
 
 
+		//printa cordenadas 
 		console.log(iniX+", "+iniY+"\n"+finalX+", "+finalY);
-		//console.log();
+		
 	}
 
+	//Pega um print de todo o desenho atual
 	function getImageData(){
 		imageData = ctx.getImageData(0,0,w,h);
 	}
 	
+	//Salva o desenho antigo com o desenho atual
 	function putImageData(){
 		ctx.putImageData(imageData,0,0);
 	}
+
 
 	function resetavariaveis(){
 		ctx.closePath();
@@ -123,6 +145,7 @@
 		iniY = 0;
 	}
 
+	
 	function mouseIsDown(){
 		return iniX != 0 && iniY != 0;
 	}
@@ -134,37 +157,23 @@
 		ctx.strokeStyle = $(".colorPicker").val();
 	}
 
+	//Funçao para salvar desenho
 	function downloadCanvas(link, filename) {
     	link.href = canvas.toDataURL();
     	link.download = filename;
-
-
-
-    	
-	  
 	}
 
-	function getDate(){
-		return new Date().toLocaleString().split(' ')[0].toString();
-	}
-
-	
 
 
-	$(".undo").on("click", function(){
-		if(arrayData.length > 0){
+	//Função de desfazer 
+	function undo(){
+		if(arrayData.length > 1){
 			ctx.putImageData(arrayData.pop(),0,0);
 			getImageData();
 		}
-	});
+	}
 
-	$(".save").on("click", function(){
-		downloadCanvas(this, getDate()+".png");
-
-
-
-
-	});
+	
 
 	$("canvas").mouseup(function(evt){
 		arrayData.push(imageData);
@@ -176,12 +185,10 @@
 	$('canvas').mousedown(function(evt){
 		evt.preventDefault();
 		inicializavariaveis();
-		chamaFuncao();
 	});		
 
 	$('canvas').mousemove(function(evt){
 		getMousePosition(evt);
-		
 		chamaFuncao();
 	});
 
@@ -189,5 +196,13 @@
 		showMetricas();
 	});
 
+	//retorna Data atual
+	function getDate(){
+		return new Date().toLocaleString().split(' ')[0].toString();
+	}
+
+	$(".save").on("click", function(){
+		downloadCanvas(this, getDate()+".jpeg");
+	});
 
 

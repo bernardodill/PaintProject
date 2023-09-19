@@ -46,6 +46,21 @@ body{
     float: left;
 
 }
+.menu a.ativo{
+	border: 1px solid #000;
+    border-radius: 3px;
+    background: linear-gradient(358deg, #ffffff, #c5bdbd);
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    display: block;
+    width: 15px;
+    height: 15px;
+    float: left;
+
+}
 .menu input.width{
 	width: 30px;
     height: 22px;
