@@ -73,6 +73,8 @@
 
 	}
 	
+
+	//Função borracha não está funcionando
 	function eraser(){
 
 		if(mouseIsDown()){
