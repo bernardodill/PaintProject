@@ -4,7 +4,7 @@ Um **Paint** web simples feito em **HTML, CSS, Javascript**, usando **[JQuery](h
 Feito para explorar o **[Canvas](https://developer.mozilla.org/pt-BR/docs/Web/API/Canvas_API/Tutorial)** do Javascript.
 
 ---
-Acesse  **[https://github.dev/bernardodill/PaintProject/blob/master/desenho.html](https://github.dev/bernardodill/PaintProject/blob/master/desenho.html) 
+Acesse  **[https://bernardodill.github.io/PaintProject/#](https://bernardodill.github.io/PaintProject/#) 
 
 Você já pode sair brincando com Paint. 
 
