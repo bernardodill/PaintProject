@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head lang="pt-br">
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="estiloDesenho.css"/>
+		<link rel="stylesheet" type="text/css" href="assets/fontawesome-free-6.2.1-web/css/all.min.css">
+		<script type="text/javascript" src="assets/fontawesome-free-6.2.1-web/js/all.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+	
+	</head>
+	<body>
+		<canvas id="quadro" stye>Esse navegador não suporta.</canvas>
+		
+		<div class="menu">
+			<a class="ferramenta  ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
+				<i class="fa-regular fa-square"></i>
+			</a>
+			<a class="ferramenta" id="arco" onclick="selecaoFerramentas(this)" title="Circulo" href="#">
+				<i class="fa-regular fa-circle"></i>
+			</a>
+
+			<a class="ferramenta" id="linha" onclick="selecaoFerramentas(this)" title="Vértice" href="#" >
+				<i class="fa-solid fa-minus"></i>
+			</a>
+			
+			
+			<a class="ferramenta" id="lapis" onclick="selecaoFerramentas(this)" title="Lápis" href="#">
+				<i class="fa-solid fa-pencil"></i>
+			</a>
+
+			<a class="ferramenta" id="borracha" onclick="selecaoFerramentas(this)" title="Borracha" href="#">
+				<i class="fa-solid fa-eraser"></i>
+			</a>
+			
+			<input type="number" class="width" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
+			
+			<a class="ferramenta undo" id="desfazer" onclick="undo()" title="Desfazer" href="#">
+				<i class="fa-solid fa-rotate-left"></i>
+			</a>
+
+			<input type="color" class="colorPicker" name="color"/>
+
+			<a class="save" title="Salvar" href="#">
+				<i class="fa-solid fa-download"></i>
+			</a>
+		</div>
+		
+		<!--Muda ferramenta-->
+		<script type="text/javascript">
+			function selecaoFerramentas(el){
+				var elementoAnterior = $(".menu a").removeClass("ativo");
+				$(el).addClass("ativo");
+			}
+
+		</script>
+		<script src="scriptDesenho.js"></script>
+	</body>
+</html>
