@@ -1,8 +1,19 @@
-	let canvas = document.getElementById("quadro");
-	let ctx = canvas.getContext('2d',{willReadFrequently: true});
+	let canvas = document.getElementById("quadro"); //canvas  layer 1
+
+	let canvas2 = document.getElementById("quadroFerramentas"); //canvas layer 2
+
+
+	let ctx = canvas.getContext('2d',{willReadFrequently: true}); //canvas layer 1
+
+
+	let ctxTools = canvas2.getContext('2d',{willReadFrequently: true}); //canvas layer 2
 
 	ctx.canvas.width  = window.innerWidth;
   	ctx.canvas.height = window.innerHeight;
+
+
+  	ctxTools.canvas.width  = window.innerWidth;
+  	ctxTools.canvas.height = window.innerHeight;
 
 	let iniX=0;
 	let iniY=0;
@@ -21,10 +32,43 @@
 	ctx.fillRect(0, 0, w, h);
 	imageData = ctx.getImageData(0,0,w,h);
 
+	imageData2 = ctxTools.getImageData(0,0,canvas2.width,canvas2.height);
+
 	
 		
-	function chamaFuncao(){
-		if(mouseIsDown()){
+	function chamaFuncao(){ 	//chamado a cada tick
+		//ctx.closePath()
+		//ctxTools.closePath();
+
+		if($("#retangulo").hasClass("ativo")){
+			if (mouseIsDown()){
+				rectangle()
+			};
+		} else if($("#arco").hasClass("ativo")){
+			if (mouseIsDown()){
+				arc();
+			}
+		}else if($("#linha").hasClass("ativo")){
+			if (mouseIsDown()){
+				line();
+			}
+		}else if($("#lapis").hasClass("ativo")){
+			if (mouseIsDown()){
+				pen();
+				iniX = finalX;
+				iniY = finalY;
+			}
+		}else if($("#borracha").hasClass("ativo")){
+			eraser();
+			if(mouseIsDown()){
+				erase();
+			}
+		}
+
+
+
+
+		/*if(mouseIsDown()){
 			if($("#retangulo").hasClass("ativo")){
 				rectangle();
 			} else if($("#arco").hasClass("ativo")){
@@ -39,8 +83,8 @@
 				eraser();
 
 			}
-			
-		}
+		}*/
+
 	}
 	
 
@@ -59,8 +103,6 @@
 		ctx.moveTo(iniX,iniY);
 		ctx.lineTo(finalX,finalY);
 		ctx.stroke();
-
-		
 	}
 	
 	function line(){
@@ -70,23 +112,24 @@
 		ctx.moveTo(iniX,iniY);
 		ctx.lineTo(finalX,finalY);
 		ctx.stroke();
-
 	}
-	
+
 
 	//Função borracha não está funcionando
 	function eraser(){
+		ctxTools.fillStyle = "white";
+		ctxTools.putImageData(imageData2,0,0);     // putImageData();
+		ctxTools.beginPath();
+        ctxTools.rect(finalX-25,finalY-25,50,50);
+		ctxTools.stroke();
+		ctxTools.fillStyle = "white";
+		ctxTools.fillRect(finalX-25,finalY-25,50,50);
+	}
 
-		if(mouseIsDown()){
-			console.log('Mouse baixo');
-		}
-		console.log("Mouse cima");
-		putImageData();
+	function erase(){
 		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-        ctx.rect(finalX-25,finalY-25,50,50);
-		ctx.stroke();
-		ctx.fill();
+		ctx.fillRect(finalX-25,finalY-25,50,50);
+
 	}
 	
 	function rectangle(){
@@ -107,7 +150,6 @@
 		ctx.stroke();
 	}
 	
-
 	//retorna diametro do circulo
 	function distancia(){
 		return Math.sqrt((Math.pow(finalX-iniX, 2)) + (Math.pow(finalY-iniY, 2)));
@@ -121,13 +163,8 @@
 			finalY = event.offsetY;
 		});
 
-		//finalX = event.offsetX;     /////deprectated
-		//finalY = event.offsetY;
-
-
 		//printa cordenadas 
 		console.log(iniX+", "+iniY+"\n"+finalX+", "+finalY);
-		
 	}
 
 	//Pega um print de todo o desenho atual
@@ -140,13 +177,12 @@
 		ctx.putImageData(imageData,0,0);
 	}
 
-
 	function resetavariaveis(){
+		ctxTools.closePath();
 		ctx.closePath();
 		iniX = 0;
 		iniY = 0;
 	}
-
 	
 	function mouseIsDown(){
 		return iniX != 0 && iniY != 0;
@@ -165,8 +201,6 @@
     	link.download = filename;
 	}
 
-
-
 	//Função de desfazer 
 	function undo(){
 		if(arrayData.length > 1){
@@ -176,10 +210,17 @@
 	}
 
 	
+	
+	$('canvas').mouseleave(function(){
+		ctxTools.putImageData(imageData2,0,0);
+		resetavariaveis();
+		ctxTools.closePath();
+		ctx.closePath();
+		console.log("saiu!")
+	});
 
-	$("canvas").mouseup(function(evt){
+	$('canvas').mouseup(function(evt){
 		arrayData.push(imageData);
-
 		resetavariaveis();
 		getImageData();
 	});
@@ -194,7 +235,7 @@
 		chamaFuncao();
 	});
 
-	$('.opcao').on("click", function(){
+	$('.opcao').on("click", function(){s
 		showMetricas();
 	});
 
