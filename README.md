@@ -6,7 +6,6 @@ Feito para explorar o **[Canvas](https://developer.mozilla.org/pt-BR/docs/Web/AP
 ---
 Acesse  **[https://bernardodill.github.io/PaintProject/#](https://bernardodill.github.io/PaintProject/#) 
 
-Você já pode sair brincando com Paint. 
 
 
 
