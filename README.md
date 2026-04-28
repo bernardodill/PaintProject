@@ -13,7 +13,7 @@ Acesse  **[https://bernardodill.github.io/PaintProject/#](https://bernardodill.g
 Observações:
 * Este projeto foi feito no **Chrome** e não foi testado em outros browsers.
   
-* Qualquer um pode contribuir.
+
 
 
 ## Contato
