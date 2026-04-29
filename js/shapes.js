@@ -24,3 +24,12 @@
 		ctx.lineTo(finalX,finalY);
 		ctx.stroke();
 	}
+
+	export function line(){
+		putImageData();
+		ctx.beginPath();
+		ctx.globalCompositeOperation="source-over";
+		ctx.moveTo(iniX,iniY);
+		ctx.lineTo(finalX,finalY);
+		ctx.stroke();
+	}

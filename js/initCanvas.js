@@ -1,26 +1,24 @@
-	export let canvas = document.getElementById("quadro"); //canvas  layer 1
+	export let backgroundCanvas = document.getElementById("quadro"); //canvas  layer 1
+
 
 	export let canvas2 = document.getElementById("quadroFerramentas"); //canvas layer 2
 
 
-	export let ctx = canvas.getContext('2d',{willReadFrequently: true}); //canvas layer 1
+	export let ctx = backgroundCanvas.getContext('2d',{willReadFrequently: true}); //canvas layer 1
+
+	ctx.backgroundCanvas.width  = window.innerWidth;
+  	ctx.backgroundCanvas.height = window.innerHeight;
 
 
-	export let ctxTools = canvas2.getContext('2d',{willReadFrequently: true}); //canvas layer 2
-
-	ctx.canvas.width  = window.innerWidth;
-  	ctx.canvas.height = window.innerHeight;
-
-
-  	ctxTools.canvas.width  = window.innerWidth;
-  	ctxTools.canvas.height = window.innerHeight;
+  	ctxTools.backgroundCanvas.width  = window.innerWidth;
+  	ctxTools.backgroundCanvas.height = window.innerHeight;
 
 	export let iniX=0;
 	export let iniY=0;
 	export let finalX=0;
 	export let finalY=0;
-	export let w = canvas.width;
-	export let h = canvas.height;
+	export let w = backgroundCanvas.width;
+	export let h = backgroundCanvas.height;
 	export let imageData = ctx.getImageData(0,0,w,h);
 	
 	export let arrayData = [imageData];

@@ -68,25 +68,7 @@
 		}
 	}
 	
-
-	function pontoMedioY(){
-		return (iniY+ finalY)/2;
-	}
-
-	function pontoMedioX(){
-		return (iniX+finalX)/2;
-	}
 	
-
-	
-	function line(){
-		putImageData();
-		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-		ctx.moveTo(iniX,iniY);
-		ctx.lineTo(finalX,finalY);
-		ctx.stroke();
-	}
 
 
 	//pega cordenadas do mouse enquanto se move e armazena em finalX e finalY
@@ -98,14 +80,7 @@
 	}
 
 	//Pega um print de todo o desenho atual
-	function getImageData(){
-		imageData = ctx.getImageData(0,0,w,h);
-	}
 	
-	//Salva o desenho antigo com o desenho atual
-	function putImageData(){
-		ctx.putImageData(imageData,0,0);
-	}
 
 	function resetavariaveis(){
 		ctxTools.closePath();

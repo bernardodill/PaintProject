@@ -14,6 +14,10 @@ export function undo(){
 		return new Date().toLocaleString().split(' ')[0].toString();
 	}
 
+	function getImageData(){
+		imageData = ctx.getImageData(0,0,w,h);
+	}
+
 	export function resetavariaveis(){
 		ctxTools.closePath();
 		ctx.closePath();

@@ -1,27 +1,24 @@
 	import {getMousePosition} from './mousePosition.js';
-	import {chamaFuncao} from './chamaFuncao.js';
+	import {changeShape} from './changeShape.js';
 	import {resetavariaveis} from './resetavariaveis.js';
 	import {inicializavariaveis} from './inicializavariaveis.js';
-	import {getImageData} from './getImageData.js';
-	import { arrayData } from './initCanvas.js';
-	import {imageData} from './initCanvas.js';
-	import {imageData2} from './initCanvas.js';
-	import {ctxTools} from './initCanvas.js';
-	import {ctx} from './initCanvas.js';
+	import {getImageData, putImageData} from './imageData.js';
+	import * as initCanvas from './initCanvas.js';
+	import * as tools from './tools.js';
 
 
 
 	$('canvas').mouseleave(function(){
-		ctxTools.putImageData(imageData2,0,0);
+		initCanvas.ctxTools.putImageData(imageData2,0,0);
 		resetavariaveis();
-		ctxTools.closePath();
-		ctx.closePath();
+		initCanvas.ctxTools.closePath();
+		initCanvas.ctx.closePath();
 		console.log("saiu!")
 	});
 
 	$('canvas').mouseup(function(evt){
 		console.log("up")
-		arrayData.push(imageData);
+		initCanvas.arrayData.push(imageData);
 		resetavariaveis();
 		getImageData();
 	});
@@ -34,10 +31,6 @@
 
 	$('canvas').mousemove(function(evt){
 		console.log('movendo');
-
-
-		//getMousePosition(evt);
-		//chamaFuncao();
 	});
 
 
