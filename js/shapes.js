@@ -1,7 +1,7 @@
 
 
 
-	function arc(){
+	export function arc(){
 		putImageData();
 		ctx.width = 1;
 		ctx.beginPath();
@@ -10,7 +10,7 @@
 		ctx.stroke();
 	}
 
-	function rectangle(){
+	export function rectangle(){
 		putImageData();
 		ctx.beginPath();
 		ctx.globalCompositeOperation="source-over";
@@ -18,7 +18,7 @@
 		ctx.stroke();
 	}
 
-		function pen(){
+	export function pen(){
 
 		ctx.lineCap = 'round';
 		ctx.beginPath();
