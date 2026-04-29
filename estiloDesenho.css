@@ -82,3 +82,12 @@ body{
 .menu .tool{
 	border:1px solid #000;
 }
+.coordenadas{
+    z-index: 1;
+    position: fixed;
+    display: block;
+    left:5px;
+    bottom:5px;
+    font-family: "Courier New";
+    font-size: 10px;
+}
