@@ -1,5 +1,3 @@
-	import {getMousePosition} from './mousePosition.js';
-	import {changeShape} from './changeShape.js';
 	import {inicializavariaveis} from './inicializavariaveis.js';
 	import {getImageData, putImageData} from './imageData.js';
 	import * as initCanvas from './initCanvas.js';
