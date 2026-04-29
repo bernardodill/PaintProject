@@ -1,3 +1,11 @@
+	import {getMousePosition} from './mousePosition.js';
+	import {chamaFuncao} from './chamaFuncao.js';
+	import {resetavariaveis} from './resetavariaveis.js';
+	import {inicializavariaveis} from './inicializavariaveis.js';
+	import {getImageData} from './getImageData.js';
+
+
+
 	$('canvas').mouseleave(function(){
 		ctxTools.putImageData(imageData2,0,0);
 		resetavariaveis();
