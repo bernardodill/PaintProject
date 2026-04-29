@@ -1,6 +1,5 @@
 
 
-
 	export function arc(){
 		putImageData();
 		ctx.width = 1;
@@ -19,7 +18,6 @@
 	}
 
 	export function pen(){
-
 		ctx.lineCap = 'round';
 		ctx.beginPath();
 		ctx.moveTo(iniX,iniY);

@@ -4,6 +4,10 @@
 	import {inicializavariaveis} from './inicializavariaveis.js';
 	import {getImageData} from './getImageData.js';
 	import { arrayData } from './initCanvas.js';
+	import {imageData} from './initCanvas.js';
+	import {imageData2} from './initCanvas.js';
+	import {ctxTools} from './initCanvas.js';
+	import {ctx} from './initCanvas.js';
 
 
 
