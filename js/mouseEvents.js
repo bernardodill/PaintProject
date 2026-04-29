@@ -10,7 +10,7 @@
 
 	$('canvas').mouseleave(function(){
 		initCanvas.ctxTools.putImageData(imageData2,0,0);
-		resetavariaveis();
+		tools.resetavariaveis();
 		initCanvas.ctxTools.closePath();
 		initCanvas.ctx.closePath();
 		console.log("saiu!")
@@ -19,7 +19,7 @@
 	$('canvas').mouseup(function(evt){
 		console.log("up")
 		initCanvas.arrayData.push(imageData);
-		resetavariaveis();
+		tools.resetavariaveis();
 		getImageData();
 	});
 	
