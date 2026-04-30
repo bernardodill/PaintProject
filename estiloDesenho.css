@@ -89,7 +89,8 @@ body{
     display: block;
     right: 5px;
     top: 5px;
-
+    clear:both;
+    overflow:hidden;
 }
 
 .menuLayers .layerOptions a{
