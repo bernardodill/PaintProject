@@ -12,10 +12,9 @@
 </script>
 	</head>
 	<body>
-		<canvas id="regua"></canvas>
-		<canvas id="quadro" class="canvas">Esse navegador não suporta.</canvas>
-		<canvas id="quadroFerramentas" class="canvas" >Esse navegador não suporta.</canvas>
-		
+		<div class="workspace">
+			
+		</div>
 		<div class="menu">
 			<a class="ferramenta  ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
 				<i class="fa-regular fa-square"></i>
@@ -48,6 +47,18 @@
 			<a class="save" title="Salvar" href="#">
 				<i class="fa-solid fa-download"></i>
 			</a>
+		</div>
+		<div class="menuLayers">
+			<div class="layerOptions">
+				<a class="ferramenta  id="newLayer" ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
+					<i class="fa-regular fa-file fa-xl"></i>
+				</a>
+			</div>
+
+
+			<ol class="layerList">
+				
+			</ol>
 		</div>
 		<div class="coordenadas">
 			<p>Coords</p>

@@ -7,26 +7,6 @@ body{
 	height:100%;
 }
 
-
-#quadro{
-	
-	display: block;
-    border: 1px solid #222;
-    position: fixed; /*ou position: absolute;*/
-    top: 0;
-    left: 0;
-    
-    background-color: #ccc;
-}
-#quadroFerramentas{
-    display: block;
-    border: 1px solid #aa2;
-    position: fixed; /*ou position: absolute;*/
-    top: 0px;
-    left: 0px;
-    background-color: rgba(255,255,255,0);
-}
-
 .menu{
 	display: block;
 	position: fixed;
@@ -42,7 +22,7 @@ body{
 .menu a{
 	border: 1px solid #000;
     border-radius: 3px;
-    background: linear-gradient(358deg, #c5bdbd, #ffffff);
+    background: linear-gradient(358deg, #ececec, #ffffff);
     padding: 5px;
     margin: 5px;
     text-decoration: none;
@@ -57,7 +37,7 @@ body{
 .menu a.ativo{
 	border: 1px solid #000;
     border-radius: 3px;
-    background: linear-gradient(358deg, #ffffff, #c5bdbd);
+    background: linear-gradient(358deg, #ffffff, #ececec);
     padding: 5px;
     margin: 5px;
     text-decoration: none;
@@ -88,5 +68,47 @@ body{
     left:5px;
     bottom:5px;
     font-family: "Courier New";
-    font-size: 10px;
+    font-size: 11px;
+}
+
+.menuLayers{
+    z-index: 1;
+    position: fixed;
+    display: block;
+    right:5px;
+    bottom:20px;
+    font-family: "Arial";
+    font-size: 12px;
+    background-color: #eee;
+    border:1px solid #333;
+    border-radius:3px;
+    padding:0.5em;
+}
+
+.menuLayers .layerOptions{
+    display: block;
+    right: 5px;
+    top: 5px;
+
+}
+
+.menuLayers .layerOptions a{
+    border: 1px solid #000;
+    border-radius: 3px;
+    background: linear-gradient(358deg, #ececec, #ffffff);
+    padding: 5px;
+    margin: 5px;
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+    display: block;
+    width: 15px;
+    height: 18px;
+    float: left;
+
+}
+.menuLayers ol{
+    list-style: none;
+    padding:0;
+    margin:0;
 }

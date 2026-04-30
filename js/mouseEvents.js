@@ -1,4 +1,4 @@
-	import {inicializavariaveis} from './inicializavariaveis.js';
+	import {inicializavariaveis} from './initDrawing.js';
 	import {getImageData, putImageData} from './imageData.js';
 	import * as initCanvas from './initCanvas.js';
 	import * as tools from './tools.js';
