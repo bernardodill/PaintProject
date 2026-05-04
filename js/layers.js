@@ -1,5 +1,3 @@
-
-
 $(".workspace").ready(function(){
     
 })
