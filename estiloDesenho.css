@@ -30,14 +30,15 @@ body{
 .menu{
 	display: block;
 	position: fixed;
-	border: 1px solid #333;
-	border-radius:3px;
+	
+	border-radius:13px;
 	background-color: #eee;
 	padding:0.5em;
 	left:50%;
-	top:20px;
+	top:10px;
 	width:200px;
 	margin-left:-100px;
+    box-shadow: 3px 3px 5px #ddd;
 }
 .menu a{
 	border: 1px solid #000;

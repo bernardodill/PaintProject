@@ -12,9 +12,8 @@
 </script>
 	</head>
 	<body>
-		<canvas id="regua"></canvas>
-		<canvas id="quadro" class="canvas">Esse navegador não suporta.</canvas>
-		<canvas id="quadroFerramentas" class="canvas" >Esse navegador não suporta.</canvas>
+		<div class="workspace">
+		</div>
 		
 		<div class="menu">
 			<a class="ferramenta  ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
@@ -62,7 +61,7 @@
 
 		</script>
 		<script type="module" src="js/mouseEvents.js"></script>
-		<script type="module" src="js/initCanvas.js"></script>
 		<script type="module" src="js/initDrawing.js"></script>
+		<script src="js/layers.js"></script>
 	</body>
 </html>
