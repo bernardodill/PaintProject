@@ -1,5 +1,3 @@
-
-
 	export function arc(){
 		putImageData();
 		ctx.width = 1;
