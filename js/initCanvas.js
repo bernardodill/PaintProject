@@ -19,8 +19,15 @@ firstCanvas = "<canvas id='canvas1' style='border:2px solid #a7a7a7; background-
         ctx.beginPath();
         ctx.lineWidth = $(".width").val();
         ctx.fillStyle = $(".frontColor").val()
-        ctx.fillRect(0, 0, 100, 100);
+        ctx.strokeRect(0, 0, 100, 100);
         ctx.stroke();
+        ctx.closePath();
+        var rect = ctx.getImageData(0, 0, 100, 100);
+        ctx.beginPath();
+        ctx.moveTo(300, 450);
+        ctx.putImageData(rect, 300, 450);
+        ctx.stroke();
+        ctx.closePath();
     } else {
         console.error("Canvas element not found");
     }
