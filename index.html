@@ -35,9 +35,11 @@
 			<a class="ferramenta" id="borracha" onclick="selecaoFerramentas(this)" title="Borracha" href="#">
 				<i class="fa-solid fa-eraser fa-xl"></i>
 			</a>
-			
-			<input type="number" class="size" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
-			
+			<div class="toolSize">
+				<button class="numberDown"><</button>
+				<input type="text" class="size" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
+				<button class="numberUp"> > </button>
+			</div>
 			<a class="ferramenta undo" id="desfazer" onclick="undo()" title="Desfazer" href="#">
 				<i class="fa-solid fa-rotate-left fa-xl"></i>
 			</a>
@@ -77,6 +79,7 @@
 		<script type="module" src="js/initDrawing.js"></script>
 		<script src="js/layers.js"></script>
 		<script  src="js/initCanvas.js"></script>
+		<script type="module" src="js/mouseEvents.js"></script>
 
 	</body>
 </html>

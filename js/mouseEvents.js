@@ -1,32 +1,39 @@
-	import {inicializavariaveis} from './initDrawing.js';
-	import {getImageData, putImageData} from './imageData.js';
-	import * as tools from './tools.js';
+	$(document).mouseenter(function (evt) { 
+		evt.preventDefault();
+		console.log("entrou!")
 
+		$(".coordenadas").text(`X: ${evt.pageX} Y: ${evt.pageY}`);
 
-
-	$('canvas').mouseleave(function(){
-		initCanvas.ctxTools.putImageData(imageData2,0,0);
-		tools.resetavariaveis();
-		initCanvas.ctxTools.closePath();
-		initCanvas.ctx.closePath();
-		console.log("saiu!")
-	});
-
-	$('canvas').mouseup(function(evt){
-		console.log("up")
-		initCanvas.arrayData.push(imageData);
-		tools.resetavariaveis();
-		getImageData();
+		return "in";
 	});
 	
-	$('canvas').mousedown(function(evt){
-		console.log("down")
+	$(document).mouseleave(function(evt){
 		evt.preventDefault();
-		inicializavariaveis();
+		console.log("saiu!")
+
+
+		$(".coordenadas").text("--");
+		return "out";
+	});
+
+	$(document).mouseup(function(evt){
+		evt.preventDefault();
+		
+		return "up"
+	});
+	
+	$(document).mousedown(function(evt){
+		evt.preventDefault();
+		return "down";
 	});		
 
-	$('canvas').mousemove(function(evt){
+	$(document).mousemove(function(evt){
 		console.log('movendo');
+
+
+
+
+		$(".coordenadas").text(`X: ${evt.pageX} Y: ${evt.pageY}`);
 	});
 
 

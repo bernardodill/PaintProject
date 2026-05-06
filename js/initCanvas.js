@@ -4,3 +4,7 @@ $(".workspace").ready(function() {
     $('.layerList').append('<li class="layer1">Layer 1</li>');
     $(".workspace").append(firstCanvas);
 });
+
+    let canvas = $(".canvas1")[0];
+    console.log(canvas);
+    firstCanvas = canvas.getContext("2d", willReadFrequently = true);
