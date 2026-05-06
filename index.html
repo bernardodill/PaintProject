@@ -13,9 +13,17 @@
 	</head>
 	<body>
 		<div class="workspace">
-			<canvas class="preCanvas" width="100vh" height="80vh" style="position:absolute;bottom:0px; border:1px solid #333;"></canvas>
+			
 
 		</div>
+
+		<div id="mydiv">
+  <!-- Include a header DIV with the same name as the draggable DIV, followed by "header" -->
+  <div id="mydivheader">Click here to move</div>
+  <p>Move</p>
+  <p>this</p>
+  <p>DIV</p>
+</div>
 
 		<div class="menu">
 			<div class="shapesTools">
@@ -93,6 +101,7 @@
 			}
 
 		</script>
+		<script src="js/dragToolsMenu.js"></script>
 		<script type="module" src="js/mouseEvents.js"></script>
 		<script type="module" src="js/initDrawing.js"></script>
 		<script src="js/layers.js"></script>

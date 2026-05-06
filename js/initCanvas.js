@@ -1,9 +1,17 @@
-firstCanvas = "<canvas id='canvas1' style='border:2px solid #a7a7a7; background-color: #ffffff; width: 100vw; height: 60vh; margin-top: 100px; display: block;position:absolute; bottom:0'></canvas>";
+firstCanvas = "<canvas id='canvas1' width='1200' height='800' style='border:2px solid #a7a7a7; background-color: #ffffff; margin-top: 120px; bottom:0'></canvas>";
 
 
     $('.layerList').append('<li class="layer1">Layer 1</li>');
 
     $(".workspace").append(firstCanvas);
+firstCanvas.height = 800;
+firstCanvas.width = 1200;
+
+    let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
+
+    const width = firstCanvas.offsetWidth;
+    
 
 
     window.addEventListener('DOMContentLoaded', () => {

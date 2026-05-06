@@ -33,7 +33,7 @@
 
 
 
-		$(".coordenadas").text(`X: ${evt.pageX} Y: ${evt.pageY}`);
+		$(".coordenadas").text(`X: ${evt.pageX} Y: ${evt.pageY-120}`);
 	});
 
 
