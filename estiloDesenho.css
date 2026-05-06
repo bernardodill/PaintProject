@@ -19,7 +19,16 @@ body{
 	width:600px;
     box-shadow: 3px 3px 5px #ddd;
 }
-.menu a{
+.menu div{
+    float:left;
+}
+.menu .shapesTools{
+    display: block;
+    float:left;
+    clear:both;
+    overflow:hidden;
+}
+.menu .shapesTools a{
 	border: 1px solid #d3d3d3;
     border-radius: 13px;
     background: linear-gradient(358deg, #ececec, #ffffff);
@@ -46,7 +55,7 @@ body{
     display: block;
     width: 26px;
     height: 26px;
-    float: left;
+    
 }
 
 .menu a:hover{
@@ -56,34 +65,74 @@ body{
     display: block;
 }
 
+.menu .toolSize{
+    margin-top:5px;
+    float:left;
+    display: block;
+}
+
+.menu .toolSize button.numberDown,
+.menu .toolSize button.numberUp{
+    float:left;
+    width:25px;
+    height:31px;
+    background-color: #fff;
+    border:solid 1px #555;
+    border-left:none;
+    border-right:none;
+    color:#555;
+}
+.menu .toolSize button.numberDown{
+    border-radius: 5px 0 0 5px;
+}
+.menu .toolSize button.numberUp{
+    border-radius: 0 5px 5px 0;
+}
 
 
+.menu .toolSize button.numberDown:hover,
+.menu .toolSize button.numberUp:hover{
+    background-color: #eee;
+    color:#333;
+}
 
-.menu input.size{
+.menu .toolSize button.numberDown:active,
+.menu .toolSize button.numberUp:active{
+    color:#8daffb;
+}
+
+.menu .toolSize input.size{
     background-color: #fff;
     display:block;
     border:1px solid #333;
-    width:30px
+    width:30px;
+    height:28px;
+    float:left;
+    border-top:1px solid #333;
+    border-bottom:1px solid #333;
+    font-size:15px;
+    text-align:center;
+    color:#555;
 }
 .menu input.size:focus-visible{
     outline: none;
 }
 
-.menu input.colorPicker{
-	margin:5px;   
-    border: none;    
-    width: 35px;
-    height: 35px;
-}
-.menu .toolSize{
+.menu .colorPicker{
     float:right;
     display: block;
     clear:both;
     overflow:hidden;
+    margin-top:5px;
 }
-.menu .toolSize button{
-    float:left;
+.menu .colorPicker input{
+	   
+    border: none;    
+    width: 35px;
+    height: 35px;
 }
+
+
 
 .menu .tool{
 	border:1px solid #000;

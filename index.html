@@ -16,39 +16,51 @@
 		</div>
 
 		<div class="menu">
-			<a class="ferramenta  ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
-				<i class="fa-regular fa-square fa-xl"></i>
-			</a>
-			<a class="ferramenta" id="arco" onclick="selecaoFerramentas(this)" title="Circulo" href="#">
-				<i class="fa-regular fa-circle fa-xl"></i>
-			</a>
+			<div class="shapesTools">
+				<a class="ferramenta  ativo" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
+					<i class="fa-regular fa-square fa-xl"></i>
+				</a>
+				<a class="ferramenta" id="arco" onclick="selecaoFerramentas(this)" title="Circulo" href="#">
+					<i class="fa-regular fa-circle fa-xl"></i>
+				</a>
 
-			<a class="ferramenta" id="linha" onclick="selecaoFerramentas(this)" title="Vértice" href="#" >
-				<i class="fa-solid fa-slash fa-xl"></i>
-			</a>
-			
-			
-			<a class="ferramenta" id="lapis" onclick="selecaoFerramentas(this)" title="Lápis" href="#">
-				<i class="fa-solid fa-pencil fa-xl"></i>
-			</a>
+				<a class="ferramenta" id="linha" onclick="selecaoFerramentas(this)" title="Vértice" href="#" >
+					<i class="fa-solid fa-slash fa-xl"></i>
+				</a>
+				
+				
+				<a class="ferramenta" id="lapis" onclick="selecaoFerramentas(this)" title="Lápis" href="#">
+					<i class="fa-solid fa-pencil fa-xl"></i>
+				</a>
 
-			<a class="ferramenta" id="borracha" onclick="selecaoFerramentas(this)" title="Borracha" href="#">
-				<i class="fa-solid fa-eraser fa-xl"></i>
-			</a>
-			<div class="toolSize">
-				<button class="numberDown"><</button>
-				<input type="text" class="size" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
-				<button class="numberUp"> > </button>
+				<a class="ferramenta" id="borracha" onclick="selecaoFerramentas(this)" title="Borracha" href="#">
+					<i class="fa-solid fa-eraser fa-xl"></i>
+				</a>
+				<a class="ferramenta undo" id="desfazer" onclick="undo()" title="Desfazer" href="#">
+					<i class="fa-solid fa-rotate-left fa-xl"></i>
+				</a>
+
+				<a class="save" title="Salvar" href="#">
+					<i class="fa-solid fa-download fa-xl"></i>
+				</a>
 			</div>
-			<a class="ferramenta undo" id="desfazer" onclick="undo()" title="Desfazer" href="#">
-				<i class="fa-solid fa-rotate-left fa-xl"></i>
-			</a>
+			<div class="toolSize">
+				<button onclick="changeSize(this)" class="numberDown">
+					<i class="fa-solid fa-angle-left fa-xl"></i>
+				</button>
+				<input type="text" class="size" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
+				<button onclick="changeSize(this)" class="numberUp">
+					<i class="fa-solid fa-angle-right fa-xl"></i>
+				</button>
+			</div>
+			
+			<div class="colorPicker">
+				<input type="color" value="#000000" class="frontColor" name="colorFront"/>
+				<input type="color" value="#ffffff" class="backColor" name="colorBack"/>
+			</div>
+			
 
-			<input type="color" class="colorPicker" name="color"/>
-
-			<a class="save" title="Salvar" href="#">
-				<i class="fa-solid fa-download fa-xl"></i>
-			</a>
+			
 		</div>
 		<div class="menuLayers">
 			<div class="layerOptions">
@@ -80,6 +92,7 @@
 		<script src="js/layers.js"></script>
 		<script  src="js/initCanvas.js"></script>
 		<script type="module" src="js/mouseEvents.js"></script>
+		<script src="js/buttonEvents.js"></script>
 
 	</body>
 </html>
