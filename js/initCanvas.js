@@ -1,4 +1,4 @@
-firstCanvas = "<canvas id='canvas1' width='1200' height='800' style='border:2px solid #a7a7a7; background-color: #ffffff; margin-top: 120px; bottom:0'></canvas>";
+firstCanvas = "<canvas id='canvas1' width='1200' height='800' style='border:2px solid #a7a7a7; background-color: #ffffff;  bottom:0'></canvas>";
 
 
     $('.layerList').append('<li class="layer1">Layer 1</li>');
