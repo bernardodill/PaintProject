@@ -1,3 +1,5 @@
+	import * as tools from "./tools.js";
+
 	$(document).mouseenter(function (evt) { 
 		evt.preventDefault();
 		console.log("entrou!")
@@ -30,6 +32,7 @@
 	$(document).mousemove(function(evt){
 		console.log('movendo');
 
+		tools.select(evt);
 
 
 

@@ -24,3 +24,12 @@ export function undo(){
 		iniX = 0;
 		iniY = 0;
 	}
+
+	export function select(evt){
+		if ($("#select").hasClass("ativo")){
+			console.log("select")
+		}
+		const canvas = $(".canvas1");
+		canvas.getContext('2d', { willReadFrequently: true }).getImageData(evt.pageX, evt.pageY-120, 1, 1).data;
+		
+	}

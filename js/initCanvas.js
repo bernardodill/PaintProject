@@ -1,11 +1,11 @@
-firstCanvas = "<canvas id='canvas1' width='1200' height='800' style='border:2px solid #a7a7a7; background-color: #ffffff;  bottom:0'></canvas>";
+let firstCanvas = "<canvas id='canvas1' width='1200' height='800' style='border:2px solid #a7a7a7; background-color: #ffffff;  bottom:0'></canvas>";
 
 
     $('.layerList').append('<li class="layer1">Layer 1</li>');
 
     $(".workspace").append(firstCanvas);
-firstCanvas.height = 800;
-firstCanvas.width = 1200;
+    
+    
 
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
@@ -36,6 +36,7 @@ firstCanvas.width = 1200;
         ctx.putImageData(rect, 300, 450);
         ctx.stroke();
         ctx.closePath();
+
     } else {
         console.error("Canvas element not found");
     }
