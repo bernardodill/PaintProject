@@ -1,41 +1,18 @@
-let firstCanvas = "<canvas id='canvas1' width='1200' height='800' style='border:2px solid #a7a7a7; background-color: #ffffff;  bottom:0'></canvas>";
+let firstCanvas = "<canvas id='canvas1' width='800' height='1200' style='border:1px solid #555555; display:block; background-color: #ffffff; position:absolute; top:0; left:20%;  bottom:0; margin:auto;'></canvas>";
 
 
     $('.layerList').append('<li class="layer1">Layer 1</li>');
 
     $(".workspace").append(firstCanvas);
-    
-    
 
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
 
-    const width = firstCanvas.offsetWidth;
     
-
-
     window.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('canvas1'); // Ensure this ID matches your HTML
-    
-        console.log($("canvas"))
+    const canvas = document.getElementById('canvas1'); 
         
-
     if (canvas) {
-        let ctx = canvas.getContext('2d', { willReadFrequently: true });
-        ctx.canvas.width  = window.innerWidth;
-        ctx.canvas.height = window.innerHeight;
-        ctx.beginPath();
-        ctx.lineWidth = $(".width").val();
-        ctx.fillStyle = $(".frontColor").val()
-        ctx.strokeRect(0, 0, 100, 100);
-        ctx.stroke();
-        ctx.closePath();
-        var rect = ctx.getImageData(0, 0, 100, 100);
-        ctx.beginPath();
-        ctx.moveTo(300, 450);
-        ctx.putImageData(rect, 300, 450);
-        ctx.stroke();
-        ctx.closePath();
 
     } else {
         console.error("Canvas element not found");

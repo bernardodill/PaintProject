@@ -6,5 +6,5 @@ function addLayer(){
     canvasName = "canvas"+ (layerListLenght + 1);
 
     $(".layerList").append("<li class="+(layerName)+ ">Layer " + ($(".layerList li").length + 1) + "</li>");
-    $(".workspace").append("<canvas width='100' height='100' class='" + canvasName + "' style='border:1px solid #a7a7a7; background-color: transparent; margin-top: 100px; display: block;'></canvas>");
+    $(".workspace").append("<canvas id='" + canvasName + "' width='800' height='1200' style='border:1px solid #555555; display:block; background-color: #ffffff; position:absolute; top:0; left:20%;  bottom:0; margin:auto;'></canvas>");
 }
