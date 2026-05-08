@@ -5,7 +5,7 @@ function addLayer(){
 
     canvasName = "canvas"+ (layerListLenght + 1);
 
-    $(".layerList").append("<li onclick='selectLayer(this)' class='selected' id="+(layerName)+ ">Layer " + ($(".layerList li").length + 1) + "<a><i class='delete fa-solid fa-x'></i></a></li>");
+    $(".layerList").append("<li onclick='selectLayer(this)' id='"+(layerName)+ "'>Layer " + ($(".layerList li").length + 1) + "<a><i class='delete fa-solid fa-x'></i></a></li>");
 
     $(".workspace").append("<canvas id='" + canvasName + "' width='800' height='1200' style='border:1px solid #555555; display:block; position:absolute; top:2%; left:20%;  margin:auto; z-index:"+ parseInt(layerListLenght +1)  +"';></canvas>");
 }
