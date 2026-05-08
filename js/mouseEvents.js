@@ -34,9 +34,7 @@
 
 		tools.select(evt);
 
-
-
-		$(".coordenadas").text(`X: ${evt.pageX} Y: ${evt.pageY-120}`);
+		$(".coordenadas").text(`X: ${evt.offsetX} Y: ${evt.offsetY}`);
 	});
 
 
