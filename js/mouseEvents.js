@@ -4,7 +4,7 @@
 		evt.preventDefault();
 		console.log("entrou!")
 
-		$(".coordenadas").text(`X: ${evt.pageX} Y: ${evt.pageY}`);
+		$(".coordenadas").text(`X: ${evt.offsetX} Y: ${evt.offsetY}`);
 
 		return "in";
 	});
