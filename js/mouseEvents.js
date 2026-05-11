@@ -1,18 +1,16 @@
 	import * as tools from "./tools.js";
+	import * as globals from "./globals.js";
 
 	$(document).mouseenter(function (evt) { 
 		evt.preventDefault();
-		console.log("entrou!")
 
 		$(".coordenadas").text(`X: ${evt.offsetX} Y: ${evt.offsetY}`);
-
-		return "in";
+		
 	});
 	
 	$(document).mouseleave(function(evt){
 		evt.preventDefault();
-		console.log("saiu!")
-
+		console.log("saiu!");
 
 		$(".coordenadas").text("--");
 		return "out";
@@ -26,11 +24,12 @@
 	
 	$(document).mousedown(function(evt){
 		evt.preventDefault();
-		return "down";
+		
+		console.log(globals.selectedCanvas);
 	});		
 
 	$(document).mousemove(function(evt){
-		console.log('movendo');
+		evt.preventDefault();
 
 		tools.select(evt);
 
