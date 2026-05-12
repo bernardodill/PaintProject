@@ -37,7 +37,8 @@ addLayer.addEventListener("click", function (){
 
 
 
-let changeSelectedLayer = document.getElementByClassName("layer");
+
+let changeSelectedLayer = document.getElementsByClassName("layer");
 changeSelectedLayer.addEventListener("click", function(el){
     
     let idName = el.getAttribute("id");
