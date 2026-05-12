@@ -25,7 +25,7 @@
 	$(document).mousedown(function(evt){
 		evt.preventDefault();
 		
-		console.log(globals.selectedCanvas);
+		
 	});		
 
 	$(document).mousemove(function(evt){
