@@ -16,7 +16,7 @@ function changeSize(event){
     }
 }
 
-let addLayer = getElementById("newLayer");
+let addLayer = document.getElementById("newLayer");
 addLayer.addEventListener("click", function (){
     layerListLenght = $(".layerList li").length;
 
