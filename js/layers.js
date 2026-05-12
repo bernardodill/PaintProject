@@ -1,9 +1,3 @@
-import * as globals from "./globals.js";
-
-
-
-
-
 let selectLayer = getElementByClassName("");
 
 function selectLayer(el){
