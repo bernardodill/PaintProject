@@ -1,10 +1,15 @@
+
+
 export let  selectedCanvas = $("#canvas1");
+
+
 
 export function selectLayer(el){
     
     if($("li").hasClass("selected")){
-        selectedCanvas = $(`#canvas${$(".selected").attr("id").slice(-1)}`);
+        selectedCanvas = getElementById("canvas"+el.id.at(-1));
     }
+    console.log(selectedCanvas);
 }
     
 let ctx = selectedCanvas.getContext("2d");

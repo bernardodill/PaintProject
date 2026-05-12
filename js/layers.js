@@ -1,3 +1,5 @@
+
+
 function addLayer(){
     layerListLenght = $(".layerList li").length;
 
@@ -15,16 +17,15 @@ function selectLayer(el){
     
     let idName = el.getAttribute("id");
 
-    const index = idName.at(-1); // retorna ultimo character = numero do layer
-
-    console.log(idName);
+    const index = idName.at(-1);
 
     let selectedCanvas = document.getElementById("canvas"+index);
     
-    console.log(selectedCanvas);
+    //console.log(selectedCanvas);
     
     $("li.selected").removeClass("selected");
     el.setAttribute("class","selected");
+    
     
     return selectedCanvas;
 }

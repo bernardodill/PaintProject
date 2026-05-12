@@ -13,11 +13,8 @@
 	</head>
 	<body>
 		<div class="workspace">
-			
 
 		</div>
-
-		
 
 		<div class="menu" id="toolsMenu">
 			<div id="dragMenu">
@@ -41,11 +38,6 @@
 					<i class="fa-regular fa-circle fa-xl"></i>
 				</a>
 
-				
-				
-				
-				
-
 				<a class="ferramenta" id="borracha" onclick="selecaoFerramentas(this)" title="Borracha" href="#">
 					<i class="fa-solid fa-eraser fa-xl"></i>
 				</a>
@@ -57,6 +49,7 @@
 					<i class="fa-solid fa-download fa-xl"></i>
 				</a>
 			</div>
+
 			<div class="toolSize">
 				<button onclick="changeSize(this)" class="numberDown">
 					<i class="fa-solid fa-angle-left fa-xl"></i>
@@ -71,8 +64,6 @@
 				<input type="color" value="#000000" class="frontColor" name="colorFront"/>
 				<input type="color" value="#ffffff" class="backColor" name="colorBack"/>
 			</div>
-			
-
 			
 		</div>
 		<div class="menuLayers">
@@ -98,11 +89,10 @@
 				var elementoAnterior = $(".menu a").removeClass("ativo");
 				$(el).addClass("ativo");
 			}
-
 		</script>
+		
 		<script src="js/dragToolsMenu.js"></script>
 		<script type="module" src="js/mouseEvents.js"></script>
-		<script type="module" src="js/initDrawing.js"></script>
 		<script src="js/layers.js"></script>
 		<script type="module" src="js/mouseEvents.js"></script>
 		<script src="js/buttonEvents.js"></script>
