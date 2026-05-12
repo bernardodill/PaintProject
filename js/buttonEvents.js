@@ -16,6 +16,8 @@ function changeSize(event){
     }
 }
 
+
+//adiciona novo layer, tanto na lista como um canvas novo sobreposto
 let addLayer = document.getElementById("newLayer");
 addLayer.addEventListener("click", function (){
     layerListLenght = $(".layerList li").length;
@@ -24,11 +26,31 @@ addLayer.addEventListener("click", function (){
 
     canvasName = "canvas"+ (layerListLenght + 1);
 
-    $(".layerList").append("<li onclick='selectLayer(this)' id='"+(layerName)+ "'>Layer " + ($(".layerList li").length + 1) + "<a><i class='delete fa-solid fa-x'></i></a></li>");
+    $(".layerList").append("<li class='layer' id='"+(layerName)+ "'>Layer " + ($(".layerList li").length + 1) + "<a><i class='delete fa-solid fa-x'></i></a></li>");
 
     $(".workspace").append("<canvas id='" + canvasName + "' width='800' height='1200' style='border:1px solid #555555; display:block; position:absolute; top:2%; left:20%;  margin:auto; z-index:"+ parseInt(layerListLenght +1)  +"';></canvas>");
 
     
     globals.contexts.push(document.getElementById(canvasName).getContext("2d",{willReadFrequently: true}));
 
+});
+
+
+
+let selectLayer = getElementByClassName("layer");
+selectLayer.addEventListener("click", function(){
+    
+    let idName = el.getAttribute("id");
+
+    const index = idName.at(-1);
+
+    let selectedCanvas = document.getElementById("canvas"+index);
+    
+    //console.log(selectedCanvas);
+    
+    $("li.selected").removeClass("selected");
+    el.setAttribute("class","selected");
+    
+    
+    return selectedCanvas;
 });
