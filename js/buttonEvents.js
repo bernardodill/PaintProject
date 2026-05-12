@@ -47,10 +47,8 @@ changeSelectedLayer.addEventListener("click", function(el){
     let selectedCanvas = document.getElementById("canvas"+index);
     
     //console.log(selectedCanvas);
-    
     $("li.selected").removeClass("selected");
     el.setAttribute("class","selected");
-    
     
     return selectedCanvas;
 });
