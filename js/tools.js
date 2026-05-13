@@ -27,7 +27,7 @@ export function undo(){
 
 	export function select(evt){
 		if ($("#select").hasClass("ativo")){
-			console.log("select")
+			
 		}
 		
 	}
