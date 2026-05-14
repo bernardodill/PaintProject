@@ -10,6 +10,9 @@ export function updateLayerListLenght(){
 
 }
 
+export function setLayerListLenght(lenght) {
+    layerListLenght = lenght;
+}
 
 export function setSelectedCanvas(canvas) {
     selectedCanvas = $(canvas);
