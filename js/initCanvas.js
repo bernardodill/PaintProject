@@ -1,11 +1,23 @@
-    let firstCanvas = "<canvas id='canvas1' width='800' height='1200' style='border:1px solid #555555; display:block; background-color: #ffffff; position:absolute; top:2%; left:20%; z-index:1; margin:auto;'></canvas>";
+    let firstCanvas = "<canvas id='canvas1' width='800' height='1200' style='border:1px solid #555555; display:block; background-color: rgb(255, 255, 255); position:absolute; top:2%; left:20%; z-index:1; margin:auto;'></canvas>";
 
-    $('.layerList').append("<li id='layer1' class='layer selected'>Layer 1  <a><i class='delete fa-solid  fa-x'></i></a></li>");
+    let list = document.getElementsByClassName("layerList")[0];
+    console.log(list);
 
-    $(".workspace").append(firstCanvas);
+    let workspace = document.getElementsByClassName("workspace")[0];
 
-    let windowWidth = window.innerWidth;
-    let windowHeight = window.innerHeight;
-    
-   
-        
+
+
+    list.appendChild(document.createElement("li")).setAttribute("id", "layer1");
+    list.lastChild.classList.add("layer", "selected");
+    list.lastChild.innerHTML = "Layer 1  <a><i class='delete fa-solid  fa-x'></i></a>";
+
+    workspace.appendChild(document.createElement("canvas")).setAttribute("id", "canvas1");
+    document.getElementById("canvas1").setAttribute("width", "800");
+    document.getElementById("canvas1").setAttribute("height", "1200");
+    document.getElementById("canvas1").style.backgroundColor = "rgb(255, 255, 255)";
+    document.getElementById("canvas1").style.position = "absolute";
+    document.getElementById("canvas1").style.top = "2%";
+    document.getElementById("canvas1").style.left = "20%";
+    document.getElementById("canvas1").style.zIndex = "1";
+    document.getElementById("canvas1").style.margin = "auto";
+    document.getElementById("canvas1").style.border = "1px solid #555555";

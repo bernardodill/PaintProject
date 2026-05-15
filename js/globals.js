@@ -1,12 +1,12 @@
 export let contexts = [];
-export let selectedCanvas = $("#canvas1");
+export let selectedCanvas = null;
 export let layerListLenght = 0;
 
 export function updateLayerListLenght(){
-   let layerList = document.getElementsByClassName[0]("layerList");
+   let layerList = document.getElementsByClassName("layerList")[0];
     console.log(layerList)
-
-    layerList.childElementCont;
+    
+    layerList.childElementCount;
 
 }
 
@@ -15,7 +15,7 @@ export function setLayerListLenght(lenght) {
 }
 
 export function setSelectedCanvas(canvas) {
-    selectedCanvas = $(canvas);
+    selectedCanvas = canvas;
 }
 
 

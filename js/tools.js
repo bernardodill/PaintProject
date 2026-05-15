@@ -6,7 +6,8 @@ export function undo(){
 		}
 	}
 
-	$(".save").on("click", function(){
+
+	document.getElementsByClassName("save")[0].addEventListener("click", function(){
 		downloadCanvas(this, getDate()+".jpeg");
 	});
 
@@ -26,7 +27,8 @@ export function undo(){
 	}
 
 	export function select(evt){
-		if ($("#select").hasClass("ativo")){
+		if(document.getElementById("select").classList.contains("ativo")){
+		
 			
 		}
 		
