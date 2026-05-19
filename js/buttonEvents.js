@@ -34,7 +34,7 @@ function changeSize(event){
 
 
 function addLayer(){
-    console.log("adicionou camada!");
+    
     let newCanvas = document.createElement("canvas");
     newCanvas.id = `canvas${globals.layerListLenght + 1}`; // Define o ID do novo canvas com base na quantidade de camadas
     newCanvas.width = 800;
@@ -50,8 +50,9 @@ function addLayer(){
     
     globals.setLayerListLenght(globals.layerListLenght + 1); // Incrementa a quantidade de camadas
 
-    let newLayerItem = document.createElement("div");
+    let newLayerItem = document.createElement("li");
     newLayerItem.textContent = `Camada ${globals.layerListLenght}`;
+    newLayerItem.classList.add("layer");
     newLayerItem.style.height = "30px";
     newLayerItem.style.display = "flex";
     newLayerItem.style.alignItems = "center";
@@ -62,6 +63,12 @@ function addLayer(){
     newLayerItem.style.border = "1px solid #ccc";
    
     document.querySelector(".layerList").appendChild(newLayerItem);
+
+}
+
+
+let selectedLayer = document.querySelector(".layerList li selected"); // Seleciona o primeiro item da lista de camadas
+function changeSelectedLayer() {
 
 
 }

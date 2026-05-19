@@ -18,27 +18,27 @@
 
 			</div>
 			<div class="shapesTools">
-				<a class="ferramenta  ativo" id="select" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
+				<a class="ferramenta  ativo" id="select"  title="Retangulo" href="#">
 					<i class="fa-solid fa-arrow-pointer fa-xl"></i>
 				</a>
-				<a class="ferramenta" id="lapis" onclick="selecaoFerramentas(this)" title="Lápis" href="#">
+				<a class="ferramenta" id="lapis"  title="Lápis" href="#">
 					<i class="fa-solid fa-pencil fa-xl"></i>
 				</a>
-				<a class="ferramenta" id="linha" onclick="selecaoFerramentas(this)" title="Vértice" href="#" >
+				<a class="ferramenta" id="linha"  title="Vértice" href="#" >
 					<i class="fa-solid fa-slash fa-xl"></i>
 				</a>
 
-				<a class="ferramenta" id="retangulo" onclick="selecaoFerramentas(this)" title="Retangulo" href="#">
+				<a class="ferramenta" id="retangulo"  title="Retangulo" href="#">
 					<i class="fa-regular fa-square fa-xl"></i>
 				</a>
-				<a class="ferramenta" id="arco" onclick="selecaoFerramentas(this)" title="Circulo" href="#">
+				<a class="ferramenta" id="arco"  title="Circulo" href="#">
 					<i class="fa-regular fa-circle fa-xl"></i>
 				</a>
 
-				<a class="ferramenta" id="borracha" onclick="selecaoFerramentas(this)" title="Borracha" href="#">
+				<a class="ferramenta" id="borracha"  title="Borracha" href="#">
 					<i class="fa-solid fa-eraser fa-xl"></i>
 				</a>
-				<a class="ferramenta undo" id="desfazer" onclick="undo()" title="Desfazer" href="#">
+				<a class="ferramenta undo" id="desfazer"  title="Desfazer" href="#">
 					<i class="fa-solid fa-rotate-left fa-xl"></i>
 				</a>
 
@@ -72,23 +72,16 @@
 				</a>
 			</div>
 
-
 			<ol class="layerList">
-				<li class="li selected">Camada 1</li>
+				<li class="layer selected">Camada 1</li>
 			</ol>
-
 		</div>
 		<div class="coordenadas">
 			<p>Coords</p>
 		</div>
 		
 		<!--Muda ferramenta-->
-		<script type="text/javascript">
-			function selecaoFerramentas(el){
-				var elementoAnterior = $(".menu a").removeClass("ativo");
-				$(el).addClass("ativo");
-			}
-		</script>
+		
 		
 		<script src="js/dragToolsMenu.js"></script>
 		<script type="module" src="js/mouseEvents.js"></script>

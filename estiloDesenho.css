@@ -65,6 +65,7 @@ body{
     display: block;
     width: 26px;
     height: 26px;
+    background-color: #fff;
     
 }
 
@@ -219,17 +220,18 @@ body{
 
 .menuLayers ol li a{
     color: #000000;
-    border: 1px solid #000;
+    border: 1px solid #000000;
     float: right;
     display: block;
     padding: 3px;
-    background-color: #fff;
+    
 }
 .menuLayers ol li:nth-child(even){
     background-color:#464545
 }
 .menuLayers ol li.selected{
     border:1px solid #5d7eda;
+    background-color: #ffffff;
 }
 .menuLayers ol li .delete{
     display:block;
