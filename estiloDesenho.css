@@ -168,6 +168,7 @@ body{
     border-radius:3px;
     padding:0.5em;
 }
+.menuLayers
 
 .menuLayers .layerOptions{
     display: block;
@@ -202,14 +203,18 @@ body{
 }
 
 .menuLayers ol li{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
     width: 100px;
     font-size: 14px;
-    font-family: Arial;
+    font-family: monospace;
     padding: 0 0 0 4px;
     clear: both;
     overflow: hidden;
     content: "";
+    background-color: #ffffff;
 }
 
 .menuLayers ol li a{
@@ -221,11 +226,10 @@ body{
     background-color: #fff;
 }
 .menuLayers ol li:nth-child(even){
-    background-color:#c7c7c7
+    background-color:#464545
 }
 .menuLayers ol li.selected{
-    border:2px solid #5d7eda;
-    border-radius:5px;
+    border:1px solid #5d7eda;
 }
 .menuLayers ol li .delete{
     display:block;

@@ -1,80 +1,67 @@
 import * as globals from "./globals.js";
 
 
+let addLayerBtn = document.querySelector("#newLayer");
+
+let sizeUp = document.querySelector(".numberUp");
+let sizeDown = document.querySelector(".numberDown");
+
+
+
+addLayerBtn.addEventListener("click", addLayer);
+
+sizeUp.addEventListener("click", changeSize);
+sizeDown.addEventListener("click", changeSize);
+
 
 // Função para aumentar ou diminuir o valor do input de tamanho da ferramenta
-function changeSize(event){
-    size = parseInt(document.querySelector(".size").value,10);
-    console.log(size);
+function changeSize(event){    
+    
+    let target = event.currentTarget; //pega o elemento clicado
 
-    if(event.classList.contains("numberUp")){
+    let size = parseInt(document.querySelector(".size").value,10); //pega o valor atual do input e converte para inteiro
+   
+    if(target.classList.contains("numberUp")){ //verifica se tem classe numberUp
         if(size < 10){
             document.querySelector(".size").value = parseInt(document.querySelector(".size").value,10) + 1;
         }
-    } else if(event.classList.contains("numberDown")){
+    } else if(target.classList.contains("numberDown")){
         if(size > 1){
             document.querySelector(".size").value = parseInt(document.querySelector(".size").value,10) - 1;
         }
     }
 }
 
-//adiciona novo layer, tanto na lista como um canvas novo sobreposto
-let addLayer = document.getElementById("newLayer");
-console.log(addLayer);
 
-addLayer.addEventListener("click", function (){
-
-    let layerSize = document.getElementsByClassName("layerList").length;
-
-    globals.setLayerListLenght(layerSize);
-    console.log(globals.layerListLenght);
-
-    let layerName = "layer"+(globals.layerListLenght + 1);
-    
-    const layerListUl = document.querySelector(".layerList");
-    const newLayerLi = document.createElement("li");
-    newLayerLi.className = "layer";
-    newLayerLi.id = layerName;
-    newLayerLi.innerHTML = "Layer " + (layerListUl.querySelectorAll("li").length + 1) + "<a><i class='delete fa-solid fa-x'></i></a>";
-    layerListUl.appendChild(newLayerLi);
-
-
-    let canvasName = "canvas"+(globals.layerListLenght + 1);
-
-    const newCanvas = document.createElement("canvas");
-    newCanvas.id = canvasName;
+function addLayer(){
+    console.log("adicionou camada!");
+    let newCanvas = document.createElement("canvas");
+    newCanvas.id = `canvas${globals.layerListLenght + 1}`; // Define o ID do novo canvas com base na quantidade de camadas
     newCanvas.width = 800;
     newCanvas.height = 1200;
     newCanvas.style.border = "1px solid #555555";
     newCanvas.style.display = "block";
+    newCanvas.style.backgroundColor = "transparent";
     newCanvas.style.position = "absolute";
     newCanvas.style.top = "2%";
     newCanvas.style.left = "20%";
-    newCanvas.style.margin = "auto";
-    newCanvas.style.zIndex = parseInt(globals.layerListLenght + 1);
+    newCanvas.style.zIndex = globals.layerListLenght + 1; // Define o z-index com base na quantidade de camadas
     document.querySelector(".workspace").appendChild(newCanvas);
-
-
     
-    //globals.contexts.push(document.getElementById(canvasName).getContext("2d",{willReadFrequently: true}));
+    globals.setLayerListLenght(globals.layerListLenght + 1); // Incrementa a quantidade de camadas
 
-});
+    let newLayerItem = document.createElement("div");
+    newLayerItem.textContent = `Camada ${globals.layerListLenght}`;
+    newLayerItem.style.height = "30px";
+    newLayerItem.style.display = "flex";
+    newLayerItem.style.alignItems = "center";
+    newLayerItem.style.justifyContent = "center";
+    newLayerItem.style.fontFamily = 'Monospace, monospace';
+    newLayerItem.style.fontSize = "14px";
+    newLayerItem.style.backgroundColor = "#f0f0f0";
+    newLayerItem.style.border = "1px solid #ccc";
+   
+    document.querySelector(".layerList").appendChild(newLayerItem);
 
 
-
-//seleciona ol. elemento pai do li
-let listLayer = document.getElementsByClassName("layerList")[0];
-
-
-listLayer.addEventListener("click", function(el){
-
-    if(el.target.tagName == "li"){
-
-        console.log(el);
-        
-        document.getElementsByClassName("li selected").item(0).classList.remove("selected");
-        
-        el.setAttribute("class","selected");
-        
-    }
-});
+}

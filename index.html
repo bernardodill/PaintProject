@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div class="workspace">
-
+			<canvas id='canvas1' width='800' height='1200' style='border:1px solid #555555; display:block; background-color: rgb(255, 255, 255); position:absolute; top:2%; left:20%; z-index:1; margin:auto;'></canvas>
 		</div>
 
 		<div class="menu" id="toolsMenu">
@@ -48,11 +48,13 @@
 			</div>
 
 			<div class="toolSize">
-				<button onclick="changeSize(this)" class="numberDown">
+				<button class="numberDown">
 					<i class="fa-solid fa-angle-left fa-xl"></i>
 				</button>
+
 				<input type="text" class="size" min="1" value="1" title="Largura" width="20px" name="lineWidth"/>
-				<button onclick="changeSize(this)" class="numberUp">
+
+				<button class="numberUp">
 					<i class="fa-solid fa-angle-right fa-xl"></i>
 				</button>
 			</div>
@@ -72,7 +74,7 @@
 
 
 			<ol class="layerList">
-				
+				<li class="li selected">Camada 1</li>
 			</ol>
 
 		</div>
@@ -91,7 +93,6 @@
 		<script src="js/dragToolsMenu.js"></script>
 		<script type="module" src="js/mouseEvents.js"></script>
 		<script type="module" src="js/buttonEvents.js"></script>
-		<script src="js/initCanvas.js"></script>
 		<script type="module" src="js/app.js"></script>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 export let contexts = [];
 export let selectedCanvas = null;
-export let layerListLenght = 0;
+export let layerListLenght = 1;
 
 export function updateLayerListLenght(){
    let layerList = document.getElementsByClassName("layerList")[0];
