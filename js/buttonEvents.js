@@ -1,6 +1,5 @@
 import * as globals from "./globals.js";
 
-
 let addLayerBtn = document.querySelector("#newLayer");
 
 let sizeUp = document.querySelector(".numberUp");
@@ -8,11 +7,11 @@ let sizeDown = document.querySelector(".numberDown");
 
 
 
+
 addLayerBtn.addEventListener("click", addLayer);
 
 sizeUp.addEventListener("click", changeSize);
 sizeDown.addEventListener("click", changeSize);
-
 
 // Função para aumentar ou diminuir o valor do input de tamanho da ferramenta
 function changeSize(event){    
@@ -32,9 +31,7 @@ function changeSize(event){
     }
 }
 
-
 function addLayer(){
-    
     let newCanvas = document.createElement("canvas");
     newCanvas.id = `canvas${globals.layerListLenght + 1}`; // Define o ID do novo canvas com base na quantidade de camadas
     newCanvas.width = 800;
@@ -51,6 +48,9 @@ function addLayer(){
     globals.setLayerListLenght(globals.layerListLenght + 1); // Incrementa a quantidade de camadas
 
     let newLayerItem = document.createElement("li");
+    
+    newLayerItem.addEventListener("click", changeSelectedLayer); // Adiciona o evento de clique para selecionar a camada
+
     newLayerItem.textContent = `Camada ${globals.layerListLenght}`;
     newLayerItem.classList.add("layer");
     newLayerItem.style.height = "30px";
@@ -59,16 +59,21 @@ function addLayer(){
     newLayerItem.style.justifyContent = "center";
     newLayerItem.style.fontFamily = 'Monospace, monospace';
     newLayerItem.style.fontSize = "14px";
-    newLayerItem.style.backgroundColor = "#f0f0f0";
-    newLayerItem.style.border = "1px solid #ccc";
+    
+    
+
+    newLayerItem.style.cursor = "pointer"; // Adiciona o cursor pointer para indicar que é clicável 
    
     document.querySelector(".layerList").appendChild(newLayerItem);
-
 }
 
 
-let selectedLayer = document.querySelector(".layerList li selected"); // Seleciona o primeiro item da lista de camadas
-function changeSelectedLayer() {
 
+export function changeSelectedLayer(event) {
+    console.log( 'mudou' );
+
+    document.getElementsByClassName('layer selected')[0].classList.remove("selected"); // Remove a classe "selected" do item atualmente selecionado
+
+    event.currentTarget.classList.add("selected"); // Adiciona a classe "selected" ao item clicado
 
 }

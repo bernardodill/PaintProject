@@ -227,11 +227,10 @@ body{
     
 }
 .menuLayers ol li:nth-child(even){
-    background-color:#464545
+    background-color:#dddddd;
 }
 .menuLayers ol li.selected{
     border:1px solid #5d7eda;
-    background-color: #ffffff;
 }
 .menuLayers ol li .delete{
     display:block;
