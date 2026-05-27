@@ -5,6 +5,14 @@ let addLayerBtn = document.querySelector("#newLayer");
 let sizeUp = document.querySelector(".numberUp");
 let sizeDown = document.querySelector(".numberDown");
 
+let pencilBtn = document.querySelector("#lapis");
+
+let shapesTools = document.querySelectorAll(".shapesTool a");
+
+
+
+
+pencilBtn.addEventListener("click", pencilSelected);
 
 
 
@@ -76,4 +84,13 @@ export function changeSelectedLayer(event) {
 
     event.currentTarget.classList.add("selected"); // Adiciona a classe "selected" ao item clicado
 
+}
+
+
+export function pencilSelected(evt){
+    let tool = document.querySelectorAll(".ferramenta");
+    for (let i = 0; i < tool.length; i++) {
+        document.querySelector(".ativo").classList.remove("ativo");
+        evt.currentTarget.classList.add("ativo");
+    }
 }
