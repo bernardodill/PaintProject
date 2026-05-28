@@ -1,5 +1,4 @@
 import * as buttonEvents from "./buttonEvents.js";
-import "./changeShape.js";
 import "./mouseEvents.js";
 import * as globals from "./globals.js";
 
@@ -9,7 +8,9 @@ import * as globals from "./globals.js";
         // App initialization code
         console.log("App initialized");
 
-        let layer1 = document.getElementsByClassName('layer')[0];
-        layer1.addEventListener("click", buttonEvents.changeSelectedLayer);
+        let layer1 = document.querySelector('.layer');
+        layer1.addEventListener("click", () => buttonEvents.changeSelectedLayer(event));
         
     });
+
+    

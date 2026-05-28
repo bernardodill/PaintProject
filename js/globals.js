@@ -6,9 +6,7 @@ export let layerListLenght = 1;
 export function updateLayerListLenght(){
    let layerList = document.getElementsByClassName("layerList")[0];
     console.log(layerList)
-    
     layerList.childElementCount;
-
 }
 
 export function setSelectedShape(shape) {

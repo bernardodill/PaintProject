@@ -1,5 +1,6 @@
 	import * as tools from "./tools.js";
 	import * as globals from "./globals.js";
+	import * as shapes from "./shapes.js";
 
 	let coords = document.getElementsByClassName("coordenadas")[0];
 	let canvas1 = document.getElementById("canvas1");
@@ -30,9 +31,9 @@
 	document.getElementById("canvas1").addEventListener("mousedown", function(evt){
 		evt.preventDefault();
 		let shape = globals.selectedShape;
-		console.log(shape);
-		if (shape) {
-			tools[shape](evt);
+	//	console.log(shape);
+		if(shape === "lapis"){
+			shapes.pen();
 		}
 	});		
 
