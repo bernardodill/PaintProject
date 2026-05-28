@@ -29,8 +29,11 @@
 	
 	document.getElementById("canvas1").addEventListener("mousedown", function(evt){
 		evt.preventDefault();
-		
-		
+		let shape = globals.selectedShape;
+		console.log(shape);
+		if (shape) {
+			tools[shape](evt);
+		}
 	});		
 
 	document.getElementById("canvas1").addEventListener("mousemove", function(evt){

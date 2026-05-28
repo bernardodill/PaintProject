@@ -1,4 +1,5 @@
 export let contexts = [];
+export let selectedShape = null;
 export let selectedCanvas = 'layer1';
 export let layerListLenght = 1;
 
@@ -8,6 +9,10 @@ export function updateLayerListLenght(){
     
     layerList.childElementCount;
 
+}
+
+export function setSelectedShape(shape) {
+    selectedShape = shape;
 }
 
 export function setLayerListLenght(lenght) {

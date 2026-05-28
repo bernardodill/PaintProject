@@ -225,9 +225,9 @@ body{
     display: block;
     padding: 3px;
     
-}
+} 
 .menuLayers ol li:nth-child(even){
-    background-color:#dddddd;
+    background-color:#eeeeee;
 }
 .menuLayers ol li.selected{
     border:1px solid #5d7eda;

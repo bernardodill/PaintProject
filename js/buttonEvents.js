@@ -5,14 +5,23 @@ let addLayerBtn = document.querySelector("#newLayer");
 let sizeUp = document.querySelector(".numberUp");
 let sizeDown = document.querySelector(".numberDown");
 
+// Botões de ferramentas
 let pencilBtn = document.querySelector("#lapis");
+let rectangleBtn = document.querySelector("#retangulo");
+let circleBtn = document.querySelector("#arco");
+let lineBtn = document.querySelector("#linha");
+let eraserBtn = document.querySelector("#borracha");
+let selectBtn = document.querySelector("#select");
 
-let shapesTools = document.querySelectorAll(".shapesTool a");
+
+pencilBtn.addEventListener("click", () => changeShapeTool(event));
+rectangleBtn.addEventListener("click", () => changeShapeTool(event));
+circleBtn.addEventListener("click", () => changeShapeTool(event));
+lineBtn.addEventListener("click", () => changeShapeTool(event));
+eraserBtn.addEventListener("click", () => changeShapeTool(event));
+selectBtn.addEventListener("click", () => changeShapeTool(event));
 
 
-
-
-pencilBtn.addEventListener("click", pencilSelected);
 
 
 
@@ -87,10 +96,12 @@ export function changeSelectedLayer(event) {
 }
 
 
-export function pencilSelected(evt){
-    let tool = document.querySelectorAll(".ferramenta");
-    for (let i = 0; i < tool.length; i++) {
+export function changeShapeTool(evt){
+    
         document.querySelector(".ativo").classList.remove("ativo");
         evt.currentTarget.classList.add("ativo");
-    }
+        
+        
+        globals.setSelectedShape(evt.currentTarget.id); // Atualiza a ferramenta selecionada no objeto global
+        console.log(globals.selectedShape);
 }
