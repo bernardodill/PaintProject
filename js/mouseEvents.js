@@ -5,6 +5,8 @@
 	let coords = document.getElementsByClassName("coordenadas")[0];
 	let canvas1 = document.getElementById("canvas1");
 
+	let state = null;
+
 	document.addEventListener("DOMContentLoaded", function(){
 		globals.setSelectedCanvas(document.getElementById("canvas1"));
 
@@ -25,22 +27,32 @@
 
 	document.getElementById("canvas1").addEventListener("mouseup", function(evt){
 		evt.preventDefault();
-		
+		state = 'mouseup';
 	});
 	
 	document.getElementById("canvas1").addEventListener("mousedown", function(evt){
 		evt.preventDefault();
+		state = 'mousedown';
 		let shape = globals.selectedShape;
-	//	console.log(shape);
-		if(shape === "lapis"){
-			shapes.pen();
-		}
+		globals.setIniX(evt.offsetX);
+		globals.setIniY(evt.offsetY);
+		console.log(`iniX: ${globals.iniX} iniY: ${globals.iniY}`);
 	});		
 
 	document.getElementById("canvas1").addEventListener("mousemove", function(evt){
 		evt.preventDefault();
-		tools.select(evt);
+		globals.setFinalX(evt.offsetX);
+		globals.setFinalY(evt.offsetY);
+		console.log(`finalX: ${globals.finalX} finalY: ${globals.finalY}`);
 
+
+		if(state === 'mousedown'){
+			console.log("mouse is down");
+			shapes.pen();
+		} else if(state === 'mouseup'){
+			console.log("mouse is up");
+		}
+		
 		coords.textContent = `X: ${evt.offsetX} Y: ${evt.offsetY}`;
 	});
 

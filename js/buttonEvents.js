@@ -64,6 +64,10 @@ function addLayer(){
     
     globals.setLayerListLenght(globals.layerListLenght + 1); // Incrementa a quantidade de camadas
 
+    let ctx = newCanvas.getContext("2d");
+    globals.contexts.push(ctx); // Adiciona o contexto do novo canvas à lista de contextos no objeto global
+    console.log(globals.contexts);
+
     let newLayerItem = document.createElement("li");
     
     newLayerItem.addEventListener("click", changeSelectedLayer); // Adiciona o evento de clique para selecionar a camada
@@ -76,9 +80,6 @@ function addLayer(){
     newLayerItem.style.justifyContent = "center";
     newLayerItem.style.fontFamily = 'Monospace, monospace';
     newLayerItem.style.fontSize = "14px";
-    
-    
-
     newLayerItem.style.cursor = "pointer"; // Adiciona o cursor pointer para indicar que é clicável 
    
     document.querySelector(".layerList").appendChild(newLayerItem);
@@ -93,6 +94,9 @@ export function changeSelectedLayer(event) {
     event.currentTarget.classList.add("selected"); // Adiciona a classe "selected" ao item clicado
     globals.setSelectedCanvas(document.getElementById(`canvas${event.currentTarget.textContent.split(' ')[1]}`)); // Atualiza o canvas selecionado no objeto global
     console.log(globals.selectedCanvas);
+
+    globals.setSelectedContext(globals.selectedCanvas.getContext("2d")); // Atualiza o contexto selecionado no objeto global
+    console.log(globals.selectedContext);
 }
 
 

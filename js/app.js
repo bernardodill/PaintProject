@@ -10,6 +10,10 @@ import * as globals from "./globals.js";
 
         let layer1 = document.querySelector('.layer');
         layer1.addEventListener("click", () => buttonEvents.changeSelectedLayer(event));
+
+        let ctx = document.getElementById("canvas1").getContext("2d");
+        globals.contexts.push(ctx);
+        globals.setSelectedContext(ctx);
         
     });
 
