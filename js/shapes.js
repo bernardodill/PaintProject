@@ -27,12 +27,16 @@ let finalY = globals.finalY;
 
 	export function pen(){
 		if(globals.selectedContext != null){
-
+			globals.selectedContext.globalCompositeOperation="source-over";
+			globals.selectedContext.width = 2;
+			globals.selectedContext.color = 'black';
 			globals.selectedContext.lineCap = 'round';
 			globals.selectedContext.beginPath();
+			
 			globals.selectedContext.moveTo(iniX, iniY);
 			globals.selectedContext.lineTo(finalX,finalY);
-			globals.selectedContext.stroke();
+			globals.selectedContext.fill()
+			console.log("pen is working");
 		} else{
 			console.error(globals.selectedContext);
 			console.error(globals.selectedCanvas);

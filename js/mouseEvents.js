@@ -45,11 +45,10 @@
 		globals.setFinalY(evt.offsetY);
 		console.log(`finalX: ${globals.finalX} finalY: ${globals.finalY}`);
 
-
-		if(state === 'mousedown'){
+		if(state == 'mousedown'){
 			console.log("mouse is down");
 			shapes.pen();
-		} else if(state === 'mouseup'){
+		} else if(state == 'mouseup'){
 			console.log("mouse is up");
 		}
 		
