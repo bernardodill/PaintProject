@@ -1,28 +1,26 @@
 import * as globals from "./globals.js";
+import * as math from "./math.js";
 
-let iniX = globals.iniX;
-let iniY = globals.iniY;
-let finalX = globals.finalX;
-let finalY = globals.finalY;
+
 
 	export function arc(){
 		putImageData();
 		ctx.width = 1;
 		ctx.beginPath();
 		ctx.globalCompositeOperation="source-over";
-		ctx.arc(iniX,iniY,distancia(),0,2*Math.PI);
+		ctx.arc(iniX,iniY,math.distancia(),0,2*Math.PI);
 		ctx.stroke();
 	}
 
 	export function rectangle(){
-		ctx.width = 1;
-		ctx.lineCap = 'round';
-		ctx.color = "black";
-		ctx.beginPath();
-		ctx.putImageData();
-		ctx.globalCompositeOperation="source-over";
-		ctx.rect(iniX,iniY,finalX-iniX,finalY-iniY);
-		ctx.stroke();
+		globals.selectedContext.width = 1;
+		globals.selectedContext.lineCap = 'round';
+		globals.selectedContext.color = "black";
+		globals.selectedContext.beginPath();
+		//globals.selectedContext.putImageData();
+		globals.selectedContext.globalCompositeOperation="source-over";
+		globals.selectedContext.rect(globals.iniX,globals.iniY,globals.finalX-globals.iniX,globals.finalY-globals.iniY);
+		globals.selectedContext.stroke();
 	}
 
 	export function pen(){
@@ -33,8 +31,8 @@ let finalY = globals.finalY;
 			globals.selectedContext.lineCap = 'round';
 			globals.selectedContext.beginPath();
 			
-			globals.selectedContext.moveTo(iniX, iniY);
-			globals.selectedContext.lineTo(finalX,finalY);
+			globals.selectedContext.moveTo(globals.iniX, globals.iniY+2);
+			globals.selectedContext.lineTo(globals.finalX,globals.finalY+2);
 			globals.selectedContext.fill()
 			console.log("pen is working");
 		} else{
