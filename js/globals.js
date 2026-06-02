@@ -6,6 +6,9 @@ export let layerListLenght = 1;
 
 //export let imageData = [];
 
+export let state = null;
+export let isMoving = false;
+
 export let iniX = 0;
 export let iniY = 0;
 export let finalX = 0;

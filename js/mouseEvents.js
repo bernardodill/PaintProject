@@ -1,11 +1,11 @@
 	import * as tools from "./tools.js";
 	import * as globals from "./globals.js";
 	import * as shapes from "./shapes.js";
+	import * as draw from "./draw.js";
 
 	let coords = document.getElementsByClassName("coordenadas")[0];
-	let canvas1 = document.getElementById("canvas1");
+	let canvas1 = document.getElementById("canvas");
 
-	let state = null;
 
 	document.addEventListener("DOMContentLoaded", function(){
 		globals.setSelectedCanvas(document.getElementById("canvas1"));
@@ -27,12 +27,12 @@
 
 	document.getElementById("canvas1").addEventListener("mouseup", function(evt){
 		evt.preventDefault();
-		state = 'mouseup';
+		globals.state = 'mouseup';
 	});
 	
 	document.getElementById("canvas1").addEventListener("mousedown", function(evt){
 		evt.preventDefault();
-		state = 'mousedown';
+		globals.state = 'mousedown';
 		let shape = globals.selectedShape;
 		globals.setIniX(evt.offsetX);
 		globals.setIniY(evt.offsetY);
@@ -43,15 +43,11 @@
 		evt.preventDefault();
 		globals.setFinalX(evt.offsetX);
 		globals.setFinalY(evt.offsetY);
-		console.log(`finalX: ${globals.finalX} finalY: ${globals.finalY}`);
+		let TIMEOUT = 100;
 
 		if(state == 'mousedown'){
-			console.log("mouse is down");
-			shapes.pen();
-		} else if(state == 'mouseup'){
-			console.log("mouse is up");
+			draw.selectedShape(globals.selectedShape);
 		}
-		
 		coords.textContent = `X: ${evt.offsetX} Y: ${evt.offsetY}`;
 	});
 

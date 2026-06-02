@@ -4,12 +4,12 @@ import * as math from "./math.js";
 
 
 	export function arc(){
-		putImageData();
-		ctx.width = 1;
-		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-		ctx.arc(iniX,iniY,math.distancia(),0,2*Math.PI);
-		ctx.stroke();
+		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height));
+		globals.selectedContext.width = 1;
+		globals.selectedContext.beginPath();
+		globals.selectedContext.globalCompositeOperation="source-over";
+		globals.selectedContext.arc(globals.iniX,globals.iniY,math.distancia(),0,2*Math.PI);
+		globals.selectedContext.stroke();
 	}
 
 	export function rectangle(){
@@ -17,7 +17,7 @@ import * as math from "./math.js";
 		globals.selectedContext.lineCap = 'round';
 		globals.selectedContext.color = "black";
 		globals.selectedContext.beginPath();
-		//globals.selectedContext.putImageData();
+		globals.selectedContext.putImageData();
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.rect(globals.iniX,globals.iniY,globals.finalX-globals.iniX,globals.finalY-globals.iniY);
 		globals.selectedContext.stroke();
@@ -42,10 +42,10 @@ import * as math from "./math.js";
 	}
 
 	export function line(){
-		putImageData();
-		ctx.beginPath();
-		ctx.globalCompositeOperation="source-over";
-		ctx.moveTo(iniX,iniY);
-		ctx.lineTo(finalX,finalY);
-		ctx.stroke();
+		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height));
+		globals.selectedContext.beginPath();
+		globals.selectedContext.globalCompositeOperation="source-over";
+		globals.selectedContext.moveTo(globals.iniX,globals.iniY);
+		globals.selectedContext.lineTo(globals.finalX,globals.finalY);
+		globals.selectedContext.stroke();
 	}
