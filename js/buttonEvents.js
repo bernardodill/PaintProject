@@ -57,21 +57,18 @@ function addLayer(){
     newCanvas.style.display = "block";
     newCanvas.style.backgroundColor = "transparent";
     newCanvas.style.position = "absolute";
-    newCanvas.style.top = "2%";
-    newCanvas.style.left = "20%";
     newCanvas.style.zIndex = globals.layerListLenght + 1; // Define o z-index com base na quantidade de camadas
     document.querySelector(".workspace").appendChild(newCanvas);
     
     globals.setLayerListLenght(globals.layerListLenght + 1); // Incrementa a quantidade de camadas
 
-    let ctx = newCanvas.getContext("2d");
+    let ctx = newCanvas.getContext("2d", { willReadFrequently: true }); // Obtém o contexto do novo canvas com a opção willReadFrequently
     globals.contexts.push(ctx); // Adiciona o contexto do novo canvas à lista de contextos no objeto global
     console.log(globals.contexts);
 
     let newLayerItem = document.createElement("li");
-    
+    console.log(globals.selectedContext);
     newLayerItem.addEventListener("click", changeSelectedLayer); // Adiciona o evento de clique para selecionar a camada
-
     newLayerItem.textContent = `Camada ${globals.layerListLenght}`;
     newLayerItem.classList.add("layer");
     newLayerItem.style.height = "30px";

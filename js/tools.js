@@ -1,7 +1,14 @@
+import * as globals from "./globals.js";
+import * as draw from "./draw.js";
+
+export let arrayData = [];
+export let imageData = null;
+
+
 //Função de desfazer 
 export function undo(){
 		if(arrayData.length > 1){
-			ctx.putImageData(arrayData.pop(),0,0);
+			globals.selectedContext.putImageData(arrayData.pop(),0,0);
 			getImageData();
 		}
 	}
@@ -15,15 +22,22 @@ export function undo(){
 		return new Date().toLocaleString().split(' ')[0].toString();
 	}
 
-	function getImageData(){
-		imageData = ctx.getImageData(0,0,w,h);
+
+
+
+	export function getImageData(){
+		return globals.selectedContext.getImageData(0,0,globals.selectedCanvas.width,globals.selectedCanvas.height);
+	}
+
+	export function putImageData(){
+		return globals.selectedContext.putImageData(tools.getImageData(),0,0);
 	}
 
 	export function resetavariaveis(){
-		ctxTools.closePath();
-		ctx.closePath();
-		iniX = 0;
-		iniY = 0;
+		globals.selectedContext.closePath();
+		globals.selectedContext.closePath();
+		globals.setIniX(0);
+		globals.setIniY(0);
 	}
 
 	export function select(evt){

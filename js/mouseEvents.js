@@ -27,25 +27,38 @@
 
 	document.getElementById("canvas1").addEventListener("mouseup", function(evt){
 		evt.preventDefault();
-		globals.state = 'mouseup';
+		globals.setSelectedState('mouseup');
+
+
 	});
 	
 	document.getElementById("canvas1").addEventListener("mousedown", function(evt){
 		evt.preventDefault();
-		globals.state = 'mousedown';
-		let shape = globals.selectedShape;
+		globals.setSelectedState('mousedown');
+		//let shape = globals.selectedShape;
+		
 		globals.setIniX(evt.offsetX);
 		globals.setIniY(evt.offsetY);
+		globals.setFinalX(evt.offsetX);
+		globals.setFinalY(evt.offsetY);
+		
 		console.log(`iniX: ${globals.iniX} iniY: ${globals.iniY}`);
+		
 	});		
 
 	document.getElementById("canvas1").addEventListener("mousemove", function(evt){
 		evt.preventDefault();
 		globals.setFinalX(evt.offsetX);
 		globals.setFinalY(evt.offsetY);
+		
 		let TIMEOUT = 100;
 
-		if(state == 'mousedown'){
+		globals.setIsMoving(true);
+		TIMEOUT = setTimeout(function() {
+			globals.setIsMoving(false);
+		}, 100);
+
+		if(globals.state == 'mousedown'){
 			draw.selectedShape(globals.selectedShape);
 		}
 		coords.textContent = `X: ${evt.offsetX} Y: ${evt.offsetY}`;

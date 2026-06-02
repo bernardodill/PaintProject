@@ -1,10 +1,11 @@
 import * as globals from "./globals.js";
 import * as math from "./math.js";
+import * as tools from "./tools.js";
 
 
 
 	export function arc(){
-		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height));
+		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height),globals.finalX,globals.finalY);
 		globals.selectedContext.width = 1;
 		globals.selectedContext.beginPath();
 		globals.selectedContext.globalCompositeOperation="source-over";
@@ -16,11 +17,18 @@ import * as math from "./math.js";
 		globals.selectedContext.width = 1;
 		globals.selectedContext.lineCap = 'round';
 		globals.selectedContext.color = "black";
+		
 		globals.selectedContext.beginPath();
-		globals.selectedContext.putImageData();
+		
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.rect(globals.iniX,globals.iniY,globals.finalX-globals.iniX,globals.finalY-globals.iniY);
+		
 		globals.selectedContext.stroke();
+
+		if(globals.state == 'mouseup'){
+			//tools.getImageData();
+			tools.putImageData();
+		}
 	}
 
 	export function pen(){
@@ -42,7 +50,7 @@ import * as math from "./math.js";
 	}
 
 	export function line(){
-		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height));
+		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height),globals.finalX,globals.finalY);
 		globals.selectedContext.beginPath();
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.moveTo(globals.iniX,globals.iniY);

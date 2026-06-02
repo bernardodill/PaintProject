@@ -15,6 +15,13 @@ export let finalX = 0;
 export let finalY = 0;
 
 
+export function setSelectedState(st) {
+    state = st;
+}
+export function setIsMoving(moving) {
+    isMoving = moving;
+}
+
 export function updateLayerListLenght(){
    let layerList = document.getElementsByClassName("layerList")[0];
     console.log(layerList);
