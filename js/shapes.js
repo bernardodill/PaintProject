@@ -5,7 +5,7 @@ import * as tools from "./tools.js";
 
 
 	export function arc(){
-		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height),globals.finalX,globals.finalY);
+		
 		globals.selectedContext.width = 1;
 		globals.selectedContext.beginPath();
 		globals.selectedContext.globalCompositeOperation="source-over";
@@ -17,14 +17,13 @@ import * as tools from "./tools.js";
 		globals.selectedContext.width = 1;
 		globals.selectedContext.lineCap = 'round';
 		globals.selectedContext.color = "black";
-		
+		globals.selectedContext.clearRect(0,0,globals.selectedCanvas.width, globals.selectedCanvas.height);
 		globals.selectedContext.beginPath();
 		
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.rect(globals.iniX,globals.iniY,globals.finalX-globals.iniX,globals.finalY-globals.iniY);
-		
 		globals.selectedContext.stroke();
-
+		
 		if(globals.state == 'mouseup'){
 			//tools.getImageData();
 			tools.putImageData();
@@ -37,11 +36,17 @@ import * as tools from "./tools.js";
 			globals.selectedContext.width = 2;
 			globals.selectedContext.color = 'black';
 			globals.selectedContext.lineCap = 'round';
+			
+			
 			globals.selectedContext.beginPath();
 			
-			globals.selectedContext.moveTo(globals.iniX, globals.iniY+2);
-			globals.selectedContext.lineTo(globals.finalX,globals.finalY+2);
-			globals.selectedContext.fill()
+			globals.selectedContext.moveTo(globals.iniX, globals.iniY);
+			globals.selectedContext.lineTo(globals.finalX,globals.finalY);
+			globals.selectedContext.stroke();
+
+			globals.setIniX(globals.finalX);
+			globals.setIniY(globals.finalY);
+
 			console.log("pen is working");
 		} else{
 			console.error(globals.selectedContext);
@@ -50,7 +55,7 @@ import * as tools from "./tools.js";
 	}
 
 	export function line(){
-		globals.selectedContext.putImageData(globals.selectedContext.getImageData(0, 0, globals.selectedCanvas.width, globals.selectedCanvas.height),globals.finalX,globals.finalY);
+		
 		globals.selectedContext.beginPath();
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.moveTo(globals.iniX,globals.iniY);
