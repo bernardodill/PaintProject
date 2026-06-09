@@ -10,13 +10,13 @@ import * as globals from "./globals.js";
 
         let layer1 = document.querySelector('.layer');
             
-        layer1.addEventListener("click", () => buttonEvents.changeSelectedLayer(event));
+        layer1.addEventListener("click", buttonEvents.changeSelectedLayer);
 
         let ctx = document.getElementById("canvas1").getContext("2d", { willReadFrequently: true }); // Obtém o contexto do canvas1 com a opção willReadFrequently
         globals.setSelectedContext(ctx); 
         globals.contexts.push(ctx);
         
-        globals.setSelectedCanvas(document.querySelector("#canvas1"));     
+        globals.setSelectedCanvas(document.querySelector(".workspace canvas"));     
         console.log(globals.selectedCanvas);
         console.log(globals.selectedContext);
     });

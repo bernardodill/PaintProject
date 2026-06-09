@@ -207,6 +207,13 @@ body{
     width: 35px;
     height: 18px;
     float: left;
+    cursor: pointer;
+}
+.menuLayers .layerOptions a:hover{
+    box-shadow: 2px 2px 3px #524e4e;
+    width: 36px;
+    height: 19px;
+    display: block;
 }
 
 .menuLayers ol{

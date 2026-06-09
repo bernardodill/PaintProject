@@ -77,9 +77,13 @@ function addLayer(){
 
 export function changeSelectedLayer(event) {
 
-    document.getElementsByClassName('layer selected')[0].classList.remove("selected"); // Remove a classe "selected" do item atualmente selecionado
+    let target = event.currentTarget; //pega o elemento clicado
 
-    event.currentTarget.classList.add("selected"); // Adiciona a classe "selected" ao item clicado
+    document.getElementsByClassName('layer selected')[0].classList.remove("selected"); // Remove a classe "selected" do item atualmente selecionado
+    console.log(target);
+
+    target.classList.add("selected"); // Adiciona a classe "selected" ao item clicado
+
     globals.setSelectedCanvas(document.getElementById(`canvas${event.currentTarget.textContent.split(' ')[1]}`)); // Atualiza o canvas selecionado no objeto global
     console.log(globals.selectedCanvas);
 
