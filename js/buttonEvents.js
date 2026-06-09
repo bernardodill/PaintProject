@@ -70,7 +70,7 @@ function addLayer(){
     newLayerItem.classList.add("layer");
    
     document.querySelector(".layerList").appendChild(newLayerItem);
-    console.log()
+    
 }
 
 
