@@ -54,6 +54,7 @@ function addLayer(){
     newCanvas.id = `canvas${globals.layerListLength + 1}`; // Define o ID do novo canvas com base na quantidade de camadas
     newCanvas.width = 800;
     newCanvas.height = 1200;
+    newCanvas.zIndex = globals.layerListLength + 1; 
  
     document.querySelector(".workspace").appendChild(newCanvas);
     
@@ -64,12 +65,12 @@ function addLayer(){
     
 
     let newLayerItem = document.createElement("li");
-    console.log(globals.selectedContext);
     newLayerItem.addEventListener("click", changeSelectedLayer); // Adiciona o evento de clique para selecionar a camada
     newLayerItem.textContent = `Camada ${globals.layerListLength}`;
     newLayerItem.classList.add("layer");
    
     document.querySelector(".layerList").appendChild(newLayerItem);
+    console.log()
 }
 
 

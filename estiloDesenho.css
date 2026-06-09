@@ -17,6 +17,11 @@ body{
     border:1px solid #555555;
     z-index:1;
 }
+.workspace canvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 #dragMenu{
     width:100%;
     height:10px;
@@ -199,7 +204,7 @@ body{
     color: #000;
     text-align: center;
     display: block;
-    width: 15px;
+    width: 35px;
     height: 18px;
     float: left;
 }
@@ -216,8 +221,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
-    width: 100px;
+    height: 40px;
+    width: 150px;
     font-size: 14px;
     font-family: monospace;
     padding: 0 0 0 4px;
@@ -225,6 +230,7 @@ body{
     overflow: hidden;
     content: "";
     background-color: #ffffff;
+    cursor:pointer;
 }
 
 .menuLayers ol li a{
@@ -235,6 +241,12 @@ body{
     padding: 3px;
     
 } 
+.menuLayers ol li:hover{
+    background-color: #cccccc;
+}
+.menuLayers ol li:nth-child(even):hover{
+    background-color: #cccccc;
+}
 .menuLayers ol li:nth-child(even){
     background-color:#eeeeee;
 }
