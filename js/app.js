@@ -1,5 +1,5 @@
 import * as buttonEvents from "./buttonEvents.js";
-import "./mouseEvents.js";
+import * as mouseEvents from "./mouseEvents.js";
 import * as globals from "./globals.js";
 
 
@@ -14,9 +14,12 @@ import * as globals from "./globals.js";
 
 
         let ctx = document.getElementById("canvas1").getContext("2d", { willReadFrequently: true }); // Obtém o contexto do canvas1 com a opção willReadFrequently
+        globals.setSelectedContext(ctx); 
         globals.contexts.push(ctx);
-        globals.setSelectedContext(ctx);
         
+        globals.setSelectedCanvas(document.querySelector("#canvas1"));     
+        console.log(globals.selectedCanvas);
+        console.log(globals.selectedContext);
     });
 
     

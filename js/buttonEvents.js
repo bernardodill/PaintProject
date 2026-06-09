@@ -1,4 +1,5 @@
 import * as globals from "./globals.js";
+import * as mouseEvents from "./mouseEvents.js";
 
 let addLayerBtn = document.querySelector("#newLayer");
 
@@ -50,34 +51,23 @@ function changeSize(event){
 
 function addLayer(){
     let newCanvas = document.createElement("canvas");
-    newCanvas.id = `canvas${globals.layerListLenght + 1}`; // Define o ID do novo canvas com base na quantidade de camadas
+    newCanvas.id = `canvas${globals.layerListLength + 1}`; // Define o ID do novo canvas com base na quantidade de camadas
     newCanvas.width = 800;
     newCanvas.height = 1200;
-    newCanvas.style.border = "1px solid #555555";
-    newCanvas.style.display = "block";
-    newCanvas.style.backgroundColor = "transparent";
-    newCanvas.style.position = "absolute";
-    newCanvas.style.zIndex = globals.layerListLenght + 1; // Define o z-index com base na quantidade de camadas
+ 
     document.querySelector(".workspace").appendChild(newCanvas);
     
-    globals.setLayerListLenght(globals.layerListLenght + 1); // Incrementa a quantidade de camadas
+    globals.setLayerListLength(globals.layerListLength + 1); // Incrementa a quantidade de camadas
 
     let ctx = newCanvas.getContext("2d", { willReadFrequently: true }); // Obtém o contexto do novo canvas com a opção willReadFrequently
     globals.contexts.push(ctx); // Adiciona o contexto do novo canvas à lista de contextos no objeto global
-    console.log(globals.contexts);
+    
 
     let newLayerItem = document.createElement("li");
     console.log(globals.selectedContext);
     newLayerItem.addEventListener("click", changeSelectedLayer); // Adiciona o evento de clique para selecionar a camada
-    newLayerItem.textContent = `Camada ${globals.layerListLenght}`;
+    newLayerItem.textContent = `Camada ${globals.layerListLength}`;
     newLayerItem.classList.add("layer");
-    newLayerItem.style.height = "30px";
-    newLayerItem.style.display = "flex";
-    newLayerItem.style.alignItems = "center";
-    newLayerItem.style.justifyContent = "center";
-    newLayerItem.style.fontFamily = 'Monospace, monospace';
-    newLayerItem.style.fontSize = "14px";
-    newLayerItem.style.cursor = "pointer"; // Adiciona o cursor pointer para indicar que é clicável 
    
     document.querySelector(".layerList").appendChild(newLayerItem);
 }
@@ -94,6 +84,7 @@ export function changeSelectedLayer(event) {
 
     globals.setSelectedContext(globals.selectedCanvas.getContext("2d", {willReadFrequently:true})); // Atualiza o contexto selecionado no objeto global
     console.log(globals.selectedContext);
+   
 }
 
 

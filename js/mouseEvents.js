@@ -4,28 +4,26 @@
 	import * as draw from "./draw.js";
 
 	let coords = document.getElementsByClassName("coordenadas")[0];
-	let canvas1 = document.getElementById("canvas");
+	
+	let currentCanvas = document.querySelector(".workspace canvas");
+
+	export function updateMouseEvents() {
+		globals.setSelectedCanvas(currentCanvas); // Atualiza o canvas selecionado no objeto global
+	}
 
 
-	document.addEventListener("DOMContentLoaded", function(){
-		globals.setSelectedCanvas(document.getElementById("canvas1"));
-
-	});
-
-
-	document.getElementById("canvas1").addEventListener("mouseenter", function (evt) { 
+	currentCanvas.addEventListener("mouseenter", function (evt) { 
 		evt.preventDefault();
 		coords.textContent = `X: ${evt.offsetX} Y: ${evt.offsetY}`;
-		
 	});
 	
-	document.getElementById("canvas1").addEventListener("mouseleave", function(evt){
+	currentCanvas.addEventListener("mouseleave", function(evt){
 		evt.preventDefault();
 		coords.textContent = "--";
 		
 	});
 
-	document.getElementById("canvas1").addEventListener("mouseup", function(evt){
+	currentCanvas.addEventListener("mouseup", function(evt){
 		evt.preventDefault();
 		globals.setSelectedState('mouseup');
 		globals.selectedContext.closePath();
@@ -35,7 +33,7 @@
 
 	});
 	
-	document.getElementById("canvas1").addEventListener("mousedown", function(evt){
+	currentCanvas.addEventListener("mousedown", function(evt){
 		evt.preventDefault();
 		globals.setSelectedState('mousedown');
 		//let shape = globals.selectedShape;
@@ -49,7 +47,7 @@
 		
 	});		
 
-	document.getElementById("canvas1").addEventListener("mousemove", function(evt){
+	currentCanvas.addEventListener("mousemove", function(evt){
 		evt.preventDefault();
 		globals.setFinalX(evt.offsetX);
 		globals.setFinalY(evt.offsetY);
