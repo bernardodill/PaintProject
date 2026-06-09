@@ -92,7 +92,7 @@ export function changeSelectedLayer(event) {
     globals.setSelectedCanvas(document.getElementById(`canvas${event.currentTarget.textContent.split(' ')[1]}`)); // Atualiza o canvas selecionado no objeto global
     console.log(globals.selectedCanvas);
 
-    globals.setSelectedContext(globals.selectedCanvas.getContext("2d")); // Atualiza o contexto selecionado no objeto global
+    globals.setSelectedContext(globals.selectedCanvas.getContext("2d", {willReadFrequently:true})); // Atualiza o contexto selecionado no objeto global
     console.log(globals.selectedContext);
 }
 

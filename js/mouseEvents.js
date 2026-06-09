@@ -28,6 +28,9 @@
 	document.getElementById("canvas1").addEventListener("mouseup", function(evt){
 		evt.preventDefault();
 		globals.setSelectedState('mouseup');
+		globals.selectedContext.closePath();
+		globals.setIniX(0);
+		globals.setIniY(0);
 
 
 	});

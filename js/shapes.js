@@ -6,15 +6,18 @@ import * as tools from "./tools.js";
 
 	export function arc(){
 		
-		globals.selectedContext.width = 1;
+		globals.selectedContext.width = document.querySelector('.size').value;
+
+		globals.selectedContext.clearRect(0,0,globals.selectedCanvas.width, globals.selectedCanvas.height);
 		globals.selectedContext.beginPath();
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.arc(globals.iniX,globals.iniY,math.distancia(),0,2*Math.PI);
 		globals.selectedContext.stroke();
+		
 	}
 
 	export function rectangle(){
-		globals.selectedContext.width = 1;
+		globals.selectedContext.width = document.querySelector('.size').value;
 		globals.selectedContext.lineCap = 'round';
 		globals.selectedContext.color = "black";
 		globals.selectedContext.clearRect(0,0,globals.selectedCanvas.width, globals.selectedCanvas.height);
@@ -24,8 +27,8 @@ import * as tools from "./tools.js";
 		globals.selectedContext.rect(globals.iniX,globals.iniY,globals.finalX-globals.iniX,globals.finalY-globals.iniY);
 		globals.selectedContext.stroke();
 		
+
 		if(globals.state == 'mouseup'){
-			//tools.getImageData();
 			tools.putImageData();
 		}
 	}
@@ -33,7 +36,7 @@ import * as tools from "./tools.js";
 	export function pen(){
 		if(globals.selectedContext != null){
 			globals.selectedContext.globalCompositeOperation="source-over";
-			globals.selectedContext.width = 2;
+			globals.selectedContext.width = document.querySelector('.size').value;
 			globals.selectedContext.color = 'black';
 			globals.selectedContext.lineCap = 'round';
 			
@@ -55,7 +58,7 @@ import * as tools from "./tools.js";
 	}
 
 	export function line(){
-		
+		globals.selectedContext.clearRect(0,0,globals.selectedCanvas.width, globals.selectedCanvas.height);
 		globals.selectedContext.beginPath();
 		globals.selectedContext.globalCompositeOperation="source-over";
 		globals.selectedContext.moveTo(globals.iniX,globals.iniY);
