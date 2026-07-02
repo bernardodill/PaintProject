@@ -19,7 +19,8 @@ import * as tools from "./tools.js";
 	export function rectangle(){
 		globals.selectedContext.width = document.querySelector('.size').value;
 		globals.selectedContext.lineCap = 'round';
-		globals.selectedContext.color = "black";
+		globals.selectedContext.color = globals.getColor();
+		globals.selectedContext.strokeStyle = globals.getColor();
 		globals.selectedContext.clearRect(0,0,globals.selectedCanvas.width, globals.selectedCanvas.height);
 		globals.selectedContext.beginPath();
 		
@@ -37,7 +38,7 @@ import * as tools from "./tools.js";
 		if(globals.selectedContext != null){
 			globals.selectedContext.globalCompositeOperation="source-over";
 			globals.selectedContext.width = document.querySelector('.size').value;
-			globals.selectedContext.color = 'black';
+			globals.selectedContext.color = globals.getColor();
 			globals.selectedContext.lineCap = 'round';
 			
 			

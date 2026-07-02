@@ -4,6 +4,7 @@ export let selectedCanvas = 'layer1';
 export let selectedContext = null;
 export let layerListLength = 1;
 
+
 //export let imageData = [];
 
 export let state = null;
@@ -14,6 +15,10 @@ export let iniY = 0;
 export let finalX = 0;
 export let finalY = 0;
 
+export function getColor(){
+    console.log(document.querySelector("#colorFront").value);
+    return document.querySelector("#colorFront").value;
+}
 
 export function setSelectedState(st) {
     state = st;
